@@ -1,0 +1,49 @@
+<div class="row page-titles">
+  <div class="col-md-12 align-self-center">
+    <h4 class="mb-1 text-muted"> <i><img src="assets/img/reopen.png"/></i> Reopen-Closed File</h4>
+
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 offset-xl-3 mb-4">
+    <div class="card border-0 rounded-0 h-100">
+
+      <div class="card-body">
+        <form [formGroup]="validatingForm">
+
+
+          <div class="form-group">
+            <label>Select File</label>
+            <select name="Department" (change)="selectchangeforfile($event)" formControlName="file_id"
+              [(ngModel)]="filereopen.file_id" class="form-control" size="5">
+              <option value={{file.file_id}} [selected]="file.file_id == filereopen.file_id"
+                *ngFor="let file of FileNameDetails">
+                {{file.filename}}</option>
+            </select>
+            <div class="colorred"
+              *ngIf="validatingForm.get('file_id').hasError('required') && validatingForm.get('file_id').touched">
+              Required</div>
+
+          </div>
+          <div class="form-group">
+            <label>Final Remarks </label>
+            <textarea type="text" rows="5" class="form-control" formControlName="file_remarks" [(ngModel)]="assignfile.remarks" placeholder="File Storage"></textarea>
+            
+            <div class="colorred"
+            *ngIf="validatingForm.get('file_remarks').hasError('required') && validatingForm.get('file_remarks').touched">
+            Required</div>
+
+
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-success btn-md btnSubmit" (click)="btn_filereopen()">Re-Open</button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

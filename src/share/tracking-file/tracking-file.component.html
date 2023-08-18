@@ -1,0 +1,160 @@
+<div class="row page-titles">
+  <div class="col-lg-4 col-md-5 col-sm-5 col-xs-6 col-8 align-self-center">
+    <h4 class="mb-1 text-muted"><i><img src="assets/img/analytics.png" /></i> File Tracker</h4>
+
+  </div>
+  <div class="col-lg-4 col-md-5 col-sm-5 col-xs-6">
+    <!-- <select name="Department"  size="5"  (change)="selectchangeforfile($event)" class="form-control">
+      <option value={{file.file_id}} [selected]="file.file_id == fileID" *ngFor="let file of FileNameDetails">
+        {{file.filename}}</option>
+    </select> -->
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-4 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+
+      <div class="card-body">
+
+
+
+
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <mat-form-field class="col-md-12">
+              <mat-select panelClass="my-panel" [formControl]="bankCtrl" placeholder="Select File"
+                (selectionChange)="selectchangeforfile($event)" #singleSelect>
+                <mat-select-search [formControl]="bankFilterCtrl"></mat-select-search>
+                <mat-option *ngFor="let bank of filteredBanks | async" [value]="bank">
+                  {{bank.filename +"/"+ bank.subject}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+        </div>
+
+        <br />
+        <div class="row">
+
+          <div class="col-md-8 offset-2 for-font">
+            <h6>File Id : <span style="color: green">{{fileID}}</span></h6>
+            <h6>File Name : <span style="color: green">{{fileName}}</span></h6>
+            <h6>File Subject : <span style="color: green">{{fileSubject}}</span></h6>
+          </div>
+
+        </div>
+
+        <div class="table-responsive" style="padding-top:13px " id="Datatable_Master">
+
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table table-bordered table-hover" id="TblDatatable">
+                <thead class="table-success">
+                  <tr>
+                    <th scope="col" style="width: 80px;">S.No</th>
+                    <th scope="col">Sender Department</th>
+                    <th scope="col">Sender Name</th>
+                    <th scope="col">Sending Date</th>
+                    <th scope="col">Receiver Department</th>
+                    <th scope="col">Receiver Name</th>
+                    <th scope="col">Receiving Date</th>
+                    <th scope="col">Attached Files</th>
+                    <th scope="col">Delivery staff</th>
+                    <th scope="col">User Remarks</th>
+                    <th scope="col">Status</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr *ngFor="let item of FileTrackingData;let i=index">
+                    <td scope="row">{{i + 1}}</td>
+                    <td>{{item.senderdept}}</td>
+                    <td>{{item.sendername}}</td>
+                    <td>{{item.assigneddate | date: 'dd-MM-yyyy HH:mm a'}}</td>
+                    <td>{{item.receiverdept}}</td>
+                    <td>{{item.receivername}}</td>
+                    <td>{{item.received_date | date: 'dd-MM-yyyy HH:mm a'}}</td>
+                    <td>
+                      <span *ngIf="item.add_attachment == 'Yes'"><a [routerLink]="" data-toggle="modal"
+                          data-target="#popup"
+                          (click)="getaddattachmentRowId(item.file_id, item.id)">{{item.add_attachment}}</a></span>
+                      <span *ngIf="item.add_attachment == 'No'">{{item.add_attachment}}</span>
+                    </td>
+                    <td>{{item.courierboy_name}}</td>
+                    <td>{{item.file_remarks}}</td>
+                    <td>{{item.received_status | titlecase}}</td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="loaderwrapper" *ngIf="showLoader">
+  <div class="loader">
+
+  </div>
+  <br />
+  <p id="loadertext">
+    <label>Loading please wait...</label>
+  </p>
+</div>
+
+
+<!--popup_detail Modal -->
+<div class="modal fade" id="popup" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header ">
+        <label>Attached Files</label>
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+          <span class="sr-only">Close</span></button>
+      </div>
+
+      <div class="modal-body">
+
+        
+          <div class="table-responsive" id="Datatable_Master">
+            <table id="TblDatatable" class="table table-bordered ">
+              <thead class="table-success">
+                <tr>
+                  <th scope="col">S.No</th>
+                  <th scope="col">Attached Files</th>
+                  <th scope="col" style="text-align: center">Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let file of total_attachedfiles ; let i=index">
+                  <td>{{i+1}}</td>
+                  <td>{{file.attached_file.split("_.").pop()}}</td>
+                  <td style="text-align: center"><a href="{{this.filePath_forAttachedFile +'/'+ file.attached_file}}" target="_blank"><i class="fa fa-cloud-download fa-2x"></i></a></td> 
+                  <!-- <td style="text-align: center"><a class="btn btn-outline-success"></a> <a href="{{this.filePath_forAttachedFile +'/'+ file.attached_file}}" target="_blank"><i class="fas fa-cloud-download-alt fa-2x"></i></a></td> -->
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+       
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--popup_detail Modal close-->

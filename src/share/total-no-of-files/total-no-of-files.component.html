@@ -1,0 +1,48 @@
+<div class="row page-titles">
+    <div class="col-md-6 align-self-center">
+        <h4 class="mb-1 text-muted"> <i><img src="assets/img/filerecive.png" /></i> Date Wise Files Creation</h4>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 mb-4 align-items-stretch">
+        <div class="card border-0 rounded-0 h-100">
+            <div class="card-body">
+                <div class="table-responsive" id="Department_Master">
+                    <table id="TblDatatable" class="table table-bordered table-striped">
+                        <thead class="table-success">
+                            <tr style="text-align: center">
+                                <th scope="col">S.No</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Total Number of Files</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr  style="text-align: center" *ngFor="let files of TotalFilesData ; let i=index">
+                                <td>{{i+1}}</td>
+                                <td >{{files.date }}</td>
+                                <td >{{files.totalcreatedfile}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="loaderwrapper" *ngIf="showLoader">
+    <div class="loader">
+
+    </div>
+    <br />
+    <p id="loadertext">
+        <label>Loading please wait...</label>
+    </p>
+</div>

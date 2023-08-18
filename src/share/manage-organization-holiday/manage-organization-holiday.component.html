@@ -1,0 +1,128 @@
+<div class="row page-titles">
+    <div class="col-md-6 align-self-center">
+        <h4 class="mb-1 text-muted"> <i><img src="assets/img/filerecive.png" /></i> Manage Organization Holidays</h4>
+    </div>
+    <div class="col-md-6 col-sm-12 align-self-center">
+        <div class="float-right">
+            <a href="#" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal"> Add Organization Holiday</a>&nbsp;
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 mb-4 align-items-stretch">
+        <div class="card border-0 rounded-0 h-100">
+            <div class="card-body">
+                <div class="table-responsive" id="Department_Master">
+                    <table id="TblDatatable" class="table table-bordered table-striped">
+                        <thead class="table-success">
+                            <tr>
+                                <!-- <th scope="col">S.No</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Holiday</th>
+                                <th scope="col">Type of Holiday</th>
+                                <th scope="col">Delete</th> -->
+                                <th scope="col">S.No</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Day</th>
+                                <th scope="col">Restricted Holiday</th>                             
+                                <th scope="col">Gazetted Holiday</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let holiday of HolidayData ; let i=index">
+                                <!-- <td>{{i+1}}</td>
+                                <td>{{holiday.holiday_date | date: 'dd-MMM-yyyy' }}</td>
+                                <td>{{holiday.holiday_name}}</td>
+                                <td>{{holiday.holiday_type}}</td> -->
+                                <td>{{i+1}}</td>
+                                <td>{{holiday.holiday_date | date: 'dd-MMM-yyyy' }}</td>
+                                <td>{{holiday.holiday_day }}</td>
+                                <td>{{holiday.retricted_holiday}}</td>
+                                <td>{{holiday.gazetted_holiday}}</td>
+                                <td><button class="btn-danger1" (click)="DeleteHoliday(holiday.id)">Delete</button></td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- The Modal -->
+<form [formGroup]="validatingForm">
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4>Add Organization Holiday</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Select Date </label>
+                        <div class="input-group">
+                            <!-- <input type="text" class="form-control" formControlName="HolidayDate" [(ngModel)]="orgData.HolidayDate" placeholder="Select Date"> -->
+                            <input name="startdate" formControlName="HolidayDate" [(ngModel)]="orgData.HolidayDate"
+                                type="text" [options]="myOptions" class="form-control txtinput" placeholder="DD-MM-YYYY"
+                                ngx-mydatepicker #dp="ngx-mydatepicker" readonly />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-primary" (click)="dp.toggleCalendar()">
+                                    <img src="assets/img/calendar.png" alt="">
+                                </button>
+                            </span>
+                        </div>
+
+                        <div class="colorred"
+                            *ngIf="validatingForm.get('HolidayDate').hasError('required') && validatingForm.get('HolidayDate').touched">
+                            Date required</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Holiday Name</label>
+                        <input type="text" class="form-control" formControlName="HolidayName"
+                            [(ngModel)]="orgData.HolidayName" placeholder="Holiday Name">
+                        <div class="colorred"
+                            *ngIf="validatingForm.get('HolidayName').hasError('required') && validatingForm.get('HolidayName').touched">
+                            Holiday name required</div>
+                    </div>
+
+                    
+                  <div class="form-group"  >
+                    <label>Type of Holiday <span class="text-danger">* </span> </label> <span class="text-danger text-size"></span> 
+                    <select name="AssigntoUser" class="form-control" size="5" (change)="changeForTypeOfHoliday($event)">
+                      <!-- <option *ngFor="let user of user_detail" value={{user.registration_id}}
+                        [selected]="user.registration_id == this.assignedFileData.assigned_to_userid">{{user.department_username}}</option> -->
+                        <option *ngFor="let holiday of holiday_type">{{holiday.type}}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button class="btn btn-success btn-md btnSubmit" (click)="submit()">Submit</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="loaderwrapper" *ngIf="showLoader">
+    <div class="loader">
+   
+    </div>
+    <br/>
+    <p id="loadertext">
+      <label>Loading please wait...</label>
+  </p>
+  </div>

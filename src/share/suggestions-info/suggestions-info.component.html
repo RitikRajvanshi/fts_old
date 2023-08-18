@@ -1,0 +1,55 @@
+
+<div class="row page-titles">
+    <div class="col-md-5 col-8 align-self-center">
+       <h4 class="mb-1 text-muted"> <i><img src="assets/img/metadata.png"/></i> Organization Suggestions</h4>
+    </div>
+  
+</div>
+
+
+<div class="row">
+        <div class="col-md-12 mb-4 align-items-stretch">
+          <div class="card border-0 rounded-0 h-100">
+          
+            <div class="card-body">
+                    <div class="table-responsive" id="Datatable_Master">
+                            <table id="TblDatatable" class="table table-bordered  table-striped">
+                                <thead  class="table-success">
+                                  <tr >
+                                    <th scope="col" [hidden]="true">S.No</th>
+                                    <th scope="col">Suggestion Id</th>
+                                    <th scope="col" style="width: 50%">Suggestions</th>
+                                    <th scope="col">Suggested by</th> 
+                                    <th scope="col">Date </th>  
+                                    <th scope="col">Status </th>  
+                                    <th scope="col">Action Taken </th>                                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let suggestion of SuggestionsData ; let i=index">
+                                    <td [hidden]="true">{{i+1}}</td>
+                                    <td>{{suggestion.id}}</td>                      
+                                    <td [innerHTML]="suggestion.notes_description"></td>
+                                    <td>{{suggestion.createdby_username}}</td>
+                                    <td>{{suggestion.created_date | date: 'dd-MM-yyyy HH:mm a'}}</td>          
+                                    <td>{{suggestion.status}}</td>    
+                                    <td>{{suggestion.actiontaken}}</td>                             
+                                  </tr>
+                                  </tbody>
+                              </table>
+                              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div> 
+
+      <div class="loaderwrapper" *ngIf="showLoader">
+        <div class="loader">
+       
+        </div>
+        <br/>
+        <p id="loadertext">
+          <label>Loading please wait...</label>
+      </p>
+      </div>

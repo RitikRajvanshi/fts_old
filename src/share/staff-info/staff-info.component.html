@@ -1,0 +1,92 @@
+
+<div class="row page-titles">
+    <div class="col-md-5 col-8 align-self-center">
+       <h4 class="mb-1 text-muted"> <i class="fa fa-arrow-right" aria-hidden="true"></i> Staff Information</h4>
+    </div>
+  
+</div>
+
+
+<div class="row">
+        <div class="col-md-12 mb-4 align-items-stretch">
+          <div class="card border-0 rounded-0 h-100">
+          
+            <div class="card-body">
+                    <div class="table-responsive" id="Datatable_Master">
+                            <table id="TblDatatable" class="table table-bordered  table-striped">
+                                <thead  class="table-success">
+                                  <tr >
+                                    <th scope="col">S.No</th>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Photo</th> 
+                                    <th scope="col">Employee </th>
+                                    <th scope="col">Designation </th>
+                                    <th scope="col">Department </th>
+                                    <th scope="col">Head of Department </th>
+                                    <th scope="col">Email </th>                                    
+                                    <th scope="col">Mobile </th>                             
+                                    <th scope="col">Office Intercom Number </th> 
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let emp of emp_detail ; let i=index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{emp.employee_id}}</td>
+                                    <!-- <td style="text-align: center"><img src="{{emp.employeepic}}" alt="{{emp.employeepic}}" width='40' height ='40'></td> -->
+                                    <td style="text-align: center"><a [routerLink]='[]' data-toggle="modal" data-target="#popup" (click)="getemployeeimage(emp.registration_id)">Image</a></td>                                    
+                                    <td>{{emp.first_name}} {{emp.last_name}}</td>
+                                    <td>{{emp.designationname}}</td>
+                                    <td>{{emp.departmentname}}</td>
+                                    <td>{{emp.department_hod_name}}</td>
+                                    <td>{{emp.email_id}}</td>                                    
+                                    <td>{{emp.mobileno}}</td>
+                                    <td>{{emp.intercom_number}}</td>
+                                    
+                                  </tr>
+                                  </tbody>
+                              </table>
+                              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div> 
+<div class="loaderwrapper" *ngIf="showLoader">
+  <div class="loader">
+ 
+  </div>
+  <br/>
+  <p id="loadertext">
+    <label>Loading please wait...</label>
+</p>
+</div>
+    
+
+
+
+
+
+<!-- The Modal -->
+<div class="modal" id="popup">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Employee Image</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <img src="{{EmployeeImage}}" alt="{{EmployeeImage}}" width='100%' height ='100%'>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
+      </div>
+
+    </div>
+  </div>
+</div>

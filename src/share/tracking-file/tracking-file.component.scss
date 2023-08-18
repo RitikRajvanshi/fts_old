@@ -1,0 +1,38 @@
+td:nth-child(1) {
+    background: #e1ffe8;
+    
+  }
+td:nth-child(2),td:nth-child(3),td:nth-child(4) {
+    background: #e6f4fd;
+    
+  }
+  td:nth-child(5),td:nth-child(6),td:nth-child(7) {
+    background: #f2fdf4;
+    
+  }
+  td:nth-child(8),td:nth-child(9) {
+    background: #f9f2dd;
+    
+  }
+
+
+  ::ng-deep .mat-select-trigger {
+    min-width: 50vw;
+  }
+  
+  ::ng-deep .mat-select-panel {
+    max-height: 60vh !important;
+    overflow-x: hidden!important;
+  }
+ 
+  
+//   ::ng-deep .mat-select-content{
+//     width:50%;
+//     background-color: red;
+//     font-size: 10px;   
+// }
+
+.for-font h6{
+  font-size: 0.8rem;
+  font-weight: 700;
+}

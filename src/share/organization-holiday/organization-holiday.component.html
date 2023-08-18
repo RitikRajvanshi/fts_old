@@ -1,0 +1,49 @@
+<div class="row page-titles">
+    <div class="col-md-6 align-self-center">
+        <h4 class="mb-1 text-muted"> <i class="fa fa-arrow-right" aria-hidden="true"></i> Organization Holiday</h4>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 mb-4 align-items-stretch">
+        <div class="card border-0 rounded-0 h-100">
+            <div class="card-body">
+                <div class="table-responsive" id="Department_Master">
+                    <table id="TblDatatable" class="table table-bordered table-striped">
+                        <thead class="table-success">
+                            <tr>
+                                <th scope="col">S.No</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Day</th>
+                                <th scope="col">Restricted Holiday</th>                             
+                                <th scope="col">Gazetted Holiday</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let holiday of HolidayData ; let i=index">
+                                <td>{{i+1}}</td>
+                                <td>{{holiday.holiday_date | date: 'dd-MMM-yyyy' }}</td>
+                                <td>{{holiday.holiday_day }}</td>
+                                <td>{{holiday.retricted_holiday}}</td>
+                                <td>{{holiday.gazetted_holiday}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="loaderwrapper" *ngIf="showLoader">
+    <div class="loader">
+   
+    </div>
+    <br/>
+    <p id="loadertext">
+      <label>Loading please wait...</label>
+  </p>
+  </div>
