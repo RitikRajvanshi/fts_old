@@ -1,0 +1,183 @@
+<div class="row page-titles">
+  <div class="col-md-12 align-self-center">
+    <h4 class="mb-1 text-muted"><i><img src="assets/img/notebook.png" /></i> File Creation </h4>
+
+  </div>
+
+</div>
+
+<div class="col-md-10 offset-md-1">
+  <div class="row">
+    <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12 offset-xl-1  mb-4">
+      <div class="card border-0 rounded-0 h-100">
+
+        <div class="card-body">
+
+          <form [formGroup]="validatingForm">
+            <h6><strong><span style="color: red;">Information :-</span> </strong> File Id will generate after clicking on <strong><span style="color: green;">Generate</span></strong> button.</h6>
+            <hr>
+
+            <div class="row">
+              <!-- <div class="col-md-4">
+                <div class="form-group">
+                  <label> File Id <span class="colorred">*</span></label>
+                  <input type="text" class="form-control" formControlName="filereadonlydata"
+                    [(ngModel)]="fileinitiation.filereadonlydata" readonly>
+                </div>
+              </div> -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label> File Name <span class="colorred">*</span></label>
+                  <input type="text" class="form-control" formControlName="filename"
+                    [(ngModel)]="fileinitiation.filename" readonly>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label> File Name <span class="colorred">*</span></label>
+                  <input type="text" class="form-control" formControlName="filename"
+                    [(ngModel)]="fileinitiation.filename">
+                </div>
+              </div>
+            </div> -->
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>File Category</label>
+                  <select name="FileCategory" class="form-control" (change)="selectFileCategory($event)" size="5">
+                    <option *ngFor="let category of filecategorydata" value={{category.id}}
+                      [selected]="category.id == this.fileinitiation.filecategoryid">{{category.category_name}}</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label>Priority</label>
+                  <select name="FileCategory" class="form-control" (change)="changePriority($event)" size="5">
+                    <option *ngFor="let priority of priorities" value={{priority.id}}
+                      [selected]="priority.id == this.fileinitiation.priority">{{priority.priority}}</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- <div class="col-md-6">
+                <div class="form-group">
+                  <label> File Name <span class="colorred">*</span></label>
+                  <input type="text" class="form-control" formControlName="filename"
+                    [(ngModel)]="fileinitiation.filename" readonly>
+                </div>
+              </div>  -->
+            </div>
+
+            <!-- <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>File Category</label>
+                  <select name="FileCategory" class="form-control" (change)="selectFileCategory($event)" size="5">
+                    <option *ngFor="let category of filecategorydata" value={{category.id}}
+                      [selected]="category.id == this.fileinitiation.filecategoryid">{{category.category_name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label> Subject </label>
+                  <input type="text" class="form-control" formControlName="subject" placeholder="Subject"
+                    [(ngModel)]="fileinitiation.subject">
+                  <!-- <div  class="colorred" *ngIf="validatingForm.get('subject').hasError('required') && validatingForm.get('subject').touched"> Required</div> -->
+                </div>
+
+              </div>
+            </div>
+
+            <div class="row" [hidden]="hideDates">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Select Start Date </label>
+                  <div class="input-group">
+                    <!-- <input type="text" class="form-control" formControlName="HolidayDate" [(ngModel)]="orgData.HolidayDate" placeholder="Select Date"> -->
+                    <input name="startdate" formControlName="leave_start" [(ngModel)]="LeaveInfo.leave_start"
+                      type="text" [options]="myOptions" class="form-control txtinput" placeholder="DD-MM-YYYY"
+                      ngx-mydatepicker #dp="ngx-mydatepicker" readonly />
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-primary" (click)="dp.toggleCalendar()">
+                        <img src="assets/img/calendar.png" alt="">
+                      </button>
+                    </span>
+                  </div>
+
+                  <div class="colorred"
+                    *ngIf="validatingForm.get('leave_start').hasError('required') && validatingForm.get('leave_start').touched">
+                    Date required</div>
+                </div>
+
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Select End Date </label>
+                  <div class="input-group">
+                    <!-- <input type="text" class="form-control" formControlName="HolidayDate" [(ngModel)]="orgData.HolidayDate" placeholder="Select Date"> -->
+                    <input name="enddate" formControlName="leave_end" [(ngModel)]="LeaveInfo.leave_end" type="text"
+                      [options]="myOptions" class="form-control txtinput" placeholder="DD-MM-YYYY" ngx-mydatepicker
+                      #dp1="ngx-mydatepicker" readonly />
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-primary" (click)="dp1.toggleCalendar()">
+                        <img src="assets/img/calendar.png" alt="">
+                      </button>
+                    </span>
+                  </div>
+
+                  <div class="colorred"
+                    *ngIf="validatingForm.get('leave_end').hasError('required') && validatingForm.get('leave_end').touched">
+                    Date required</div>
+                </div>
+
+              </div>
+            </div>
+
+            <div style="padding:8px;"></div>
+            <div class="form-group pull-right">
+              <button class="btn btn-success btn-md btnSubmit" (click)="submit()">Generate File Number</button>
+
+            </div>
+
+
+            <div style="padding:10px;"></div>
+            <h4>Information-</h4>
+            <ul>
+
+              <li>1. Files created by you will automatically assigned to you.</li>
+              <li>2. These files will be available on menu -- Files on my Desk.</li>
+              <li>3. <span style="color: red">Printout</span> - User can take printout of Filename from File Tracker
+                Menu.</li>
+              <li>4. <span style="color: red">File Delete</span> - User can delete only those files which he created but
+                did not forward to anyone and forwarded files but not received by another user. To Delete file. Please
+                go on Menu - File Delete.</li>
+            </ul>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="loaderwrapper" *ngIf="showLoader">
+  <div class="loader">
+
+  </div>
+  <br />
+  <p id="loadertext">
+    <label>File Creating...</label>
+  </p>
+</div>

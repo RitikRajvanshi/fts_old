@@ -1,0 +1,134 @@
+<div class="row page-titles">
+  <div class="col-md-6 align-self-center">
+    <h4 class="mb-1 text-muted"> <i><img src="assets/img/filerecive.png" /></i> File Forward</h4>
+
+  
+           
+
+  </div>
+
+  <div class="col-md-6 align-self-center">
+      <a  href="#/user/welcome/file-on-my-desk"  class="pull-right btn btn-outline-success">Back</a>
+    </div>
+
+</div>
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12  mb-4">
+    <div class="card border-0 rounded-0 h-100">
+      
+      <div class="card-body">
+        <form enctype="multipart/form-data">
+
+
+          <div class="row">
+             <div class="col-md-4">
+                <div class="form-group">
+                    <label>File Name</label>
+                    <!-- <select name="cars" class="form-control" (change)="selectFile($event)" disabled>
+                      <option *ngFor="let file of totalfiles" value={{file.file_id}}
+                        [selected]="file.file_id == this.assignedFileData.file_id">{{file.filename}}</option>
+                    </select> -->
+                    <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"  [(ngModel)]="fileMovement.filename" disabled/>
+                  </div>
+        
+        
+                  <div class="form-group">
+                    <label>Department <span class="text-danger">* </span> </label>  <span class="text-danger text-size">(Sorted Alphabetically)</span> 
+                    <select name="Department" class="form-control"  (change)="onChangedepartment($event)"  size="25">
+                     
+                        <option *ngFor="let data of departmentInfo" >{{data.departmentname}}</option>
+                    </select>
+                  </div>
+             </div>
+             <div class="col-md-4">
+              
+
+                  <div class="form-group">
+                    <label>Department Email Id </label>
+                    <input type="text"  [(ngModel)]="fileMovement.departmentEmailId"  [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Department Email Id" disabled>
+                  </div>
+        
+                  <div class="form-group"  >
+                    <label>Assign to User <span class="text-danger">* </span> </label> <span class="text-danger text-size">(Sorted Alphabetically)</span> 
+                    <select name="AssigntoUser" class="form-control" size="25" (change)="changeForAssignToUser($event)">
+                      <!-- <option *ngFor="let user of user_detail" value={{user.registration_id}}
+                        [selected]="user.registration_id == this.assignedFileData.assigned_to_userid">{{user.department_username}}</option> -->
+                        <option *ngFor="let data of assignToUser">{{data.employeename}} [ {{data.email_id}} ]</option>
+                    </select>
+                  </div>
+        
+                  <!-- <div class="form-group" [hidden]="AssignOnlyDepartmentHead_Hidden">
+                    <label>Assign to User <span class="text-danger">* </span> </label> <span class="text-danger text-size">(Sorted Alphabetically)</span> 
+                    <select name="AssigntoUser" class="form-control" (change)="selectAssignToUser($event)" size="25">
+                      
+                        <option *ngFor="let user of user_detail" value={{user.registration_id}}
+                        [selected]="user.registration_id == this.assignedFileData.assigned_to_userid">{{user.department_email}}</option>
+                      </select>
+                  </div> -->
+        
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group">
+                      <label>Delivery Staff</label>
+                      <input type="text" class="form-control" placeholder=" Delivery Staff" [ngModelOptions]="{standalone: true}"
+                        [(ngModel)]="fileMovement.courier_boy_name">
+                    </div>
+          
+          
+                    <div class="form-group">
+                      <label>Remarks </label>
+                      <input type="text" class="form-control" placeholder=" Remarks" [ngModelOptions]="{standalone: true}"
+                        [(ngModel)]="fileMovement.remarks">
+                    </div>
+
+                    <div class="form-group">
+                      <label class="radio-inline">Do you want to add attachment ?</label> &nbsp; &nbsp;
+                      <input type="radio" value="Yes" (change)=selectchangeforaddattachment($event.target.value); name="group1"> Yes  &nbsp; &nbsp;
+                      <input type="radio" value="No" (change)=selectchangeforaddattachment($event.target.value); name="group1" checked> No
+                    </div>
+          
+
+                    <div class="form-group" [hidden]="attachment_hide">
+                      <label class="lblstyle">Add Attachment</label>
+                      <input id="attachment" type="file" (change)="onSelectFile($event)" multiple class="form-control uploadfile" placeholder="Please upload attachment file." />
+                      <!-- <div class="colorred">{{attachment_msg}}</div> -->
+                  </div>
+          
+                    <div class="form-group float-right">
+                      <button class="btn btn-success" [disabled]="isDisabled" (click)="assigneFile()">Forward</button> &nbsp;
+                      <a  href="#/user/welcome/file-on-my-desk"  class="pull-right btn btn-outline-success">Back</a>
+                    </div>
+                </div>
+          </div>
+
+       
+
+         
+<!-- 
+          <div class="form-group" [hidden]="AssignAllUserUser_Hidden">
+            <label>Assign to User <span class="text-danger">* </span> </label> <span class="text-danger text-size">(Sorted by Alphabetically)</span> 
+            <select name="AssigntoUser" class="form-control" (change)="selectAssignToUser($event)" size="5">
+              <option *ngFor="let user of userdetail" value={{user.registration_id}}
+                [selected]="user.registration_id == this.assignedFileData.assigned_to_userid">{{user.first_name}} {{user.last_name}}</option>
+            </select>
+          </div> -->
+
+          
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="loaderwrapper" *ngIf="showLoader">
+  <div class="loader">
+ 
+  </div>
+  <br/>
+  <p id="loadertext">
+    <label>Forward..</label>
+</p>
+</div>

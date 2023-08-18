@@ -1,0 +1,108 @@
+<div class="row page-titles">
+        <div class="col-md-5 col-8 align-self-center">
+            <h4 class="mb-1 text-muted"><i><img src="assets/img/ux.png"/></i> Files On My Desk </h4>
+          
+        </div>
+      
+    </div>
+    
+
+    <div class="row">
+            <div class="col-md-12 mb-4 align-items-stretch">
+              <div class="card border-0 rounded-0 h-100">
+              
+                <div class="card-body">
+                        <div class="table-responsive" id="Datatable_Master">
+                                <table id="TblDatatable" class="table table-bordered table-hover">
+                                    <thead class="table-success">
+                                      <tr >
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">File Id</th>
+                                        <!-- <th scope="col">File Name</th> -->
+                                        <th scope="col">File Subject</th> 
+                                        <th scope="col">File Category</th>
+                                        <th scope="col" style="text-align: center">Receiving Date</th> 
+                                        <!-- <th scope="col" style="text-align: center">Files Revert</th>                                -->
+                                        <th scope="col" style="text-align: center">Forward Files</th>
+                                        <th scope="col" style="text-align: center" [hidden]="hiddenFileCloseColumn">File Close</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                     
+                                      <tr *ngFor="let file of results ; let i=index">
+                                        <td [ngClass]="file.status === undefined?'idle':'busy'">{{i+1}}</td>
+                                        <td [ngClass]="file.status === undefined?'idle':'busy'"><a href="#" data-toggle="modal" data-target="#popup" (click)="getfilecreationInfo(file.file_id)">{{file.file_id}}</a></td>
+                                        <td [ngClass]="file.status === undefined?'idle':'busy'">{{file.subject}}</td>
+                                        <!-- <td>{{file.filename}}</td> -->
+                                        <!-- <td style="text-align: center">{{file.createddate | date: 'dd-MM-yyyy HH:mm a'}}</td>    -->
+                                        <td [ngClass]="file.status === undefined?'idle':'busy'">{{file.file_category_name}}</td> 
+                                        <td [ngClass]="file.status === undefined?'idle':'busy'" style="text-align: center">{{file.received_date | date: 'dd-MM-yyyy HH:mm a'}}</td>  
+                                        <!-- <td style="text-align: center"><a class="btn btn-outline-danger" (click)="revertFile(file)">Revert</a> </td>                             -->
+                                        <td style="text-align: center"><a class="btn btn-outline-success" (click)="editFile(file.file_id,file.id,file.filename)">Forward</a> </td>
+                                        <td style="text-align: center" [hidden]="hiddenFileCloseColumn"><a class="btn btn-outline-danger" (click)="FileClosed(file.file_id,file.filename)">File Close</a> </td>
+                                        
+                                      </tr>
+                                  
+                                    </tbody>
+                                  </table>
+                                  
+                                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div> 
+        <!--popup_detail Modal -->
+<div class="modal fade" id="popup" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <div class="modal-header ">
+        <label>File Details</label>
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+          <span class="sr-only">Close</span></button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-md-12">
+              <label><strong>File Name :</strong></label> &nbsp;{{popupDetail.filename}}
+          </div>
+          <div class="col-md-12">
+              <label><strong>Subject :</strong></label> &nbsp;{{popupDetail.subject }}
+          </div>
+          <div class="col-md-12">
+            <label><strong>Category :</strong></label> &nbsp;{{popupDetail.filecategory }}
+        </div>
+        <div class="col-md-12">
+            <label><strong>Priority :</strong></label> &nbsp;{{popupDetail.priority }}
+        </div>
+        <div class="col-md-12">
+          <label><strong>Department Name :</strong></label> &nbsp;{{popupDetail.departmentname }}
+      </div>
+      <div class="col-md-12">
+        <label><strong>Created Date :</strong></label> &nbsp;{{popupDetail.createddate | date: 'dd-MM-yyyy HH:mm a' }}
+    </div>
+    <div class="col-md-12">
+      <label><strong>Created By :</strong></label> &nbsp;{{popupDetail.createdby }}
+  </div>
+  <div class="col-md-12">
+    <label><strong>Status :</strong></label> &nbsp;{{popupDetail.status }}
+</div>
+     
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="loaderwrapper" *ngIf="showLoader">
+  <div class="loader">
+ 
+  </div>
+  <br/>
+  <p id="loadertext">
+    <label>Loading please wait...</label>
+</p>
+</div>

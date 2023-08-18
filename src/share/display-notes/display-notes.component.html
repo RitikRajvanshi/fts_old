@@ -1,0 +1,50 @@
+<div class="row page-titles">
+  <div class="col-md-6 col-8 align-self-center">
+    <h4 class="mb-1 text-muted"> <i><img src="assets/img/clipboard.png" /></i> My Suggestions/Feedback</h4>
+
+  </div>
+  <div class="col-md-6 col-4">
+    <div class="pull-right">
+      <button (click)="redirect()" class="btn btn-success">Add Suggestions / Feedback</button>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-4 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+
+
+      <div class="card-body">
+        <form>
+          <div class="table-responsive" id="Datatable_Master">
+            <table id="TblDatatable" class="table table-bordered table-hover">
+              <thead class="table-success">
+                <tr>
+                  <th scope="col" style="width: 80px;"  [hidden]="true">S.No</th>
+                  <th scope="col" style="width: 200px;">Suggestion/Feedback Id</th>
+                  <th scope="col" style="width: 50%;">Suggestions/Feedback</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Action Taken</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of allNotesList;let i=index">
+                  <td scope="row"  [hidden]="true">{{i+1}}</td>
+                  <td scope="row">{{item.id}}</td>
+                  <td [innerHTML]="item.notes_description"></td>
+                  <td scope="row">{{item.status}}</td>
+                  <td scope="row">{{item.actiontaken}}</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

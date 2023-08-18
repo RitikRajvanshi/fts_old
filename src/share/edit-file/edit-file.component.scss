@@ -1,0 +1,16 @@
+.custom-file{
+    border: 1px solid rgba(0,0,0,.15);
+    padding: .2rem .59rem;
+    display: block;
+}
+.btn-bs-file{
+    position:relative;
+}
+.btn-bs-file input[type="file"]{
+    position: absolute;
+    opacity: 0;
+    width:0;
+    height:0;
+    outline: none;
+    cursor: inherit;
+}

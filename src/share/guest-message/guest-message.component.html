@@ -1,0 +1,46 @@
+
+<div class="row page-titles">
+        <div class="col-md-12 align-self-center">
+            <h4 class="mb-1 text-muted"> <i><img src="assets/img/sms.png"/></i> Guest Messaging</h4>
+          
+        </div>
+      
+    </div>
+    
+    <div class="row">
+            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 offset-xl-3 mb-4">
+              <div class="card border-0 rounded-0 h-100">
+              
+                <div class="card-body">
+                  <form>
+                 
+        
+                      <div class="form-group">
+                          <label>Guest List</label>
+                          <select name="Guestlist" (change)="selectchangefordepartment($event)" class="form-control" size="5">
+                            <option value={{item.guestcategory}} [selected]="item.guestcategory == guestdetail.guestcategory" *ngFor="let item of Guestlistdetail">
+                              {{item.guestcategory}}</option>
+                          </select>
+                        
+                      </div>
+        
+        
+                      <div class="form-group">
+                                      <label>Guest Message</label>
+                                      <textarea  id="summernote" [ngModelOptions]="{standalone: true}" [ngxSummernote]="config"  [(ngModel)]="guestdetail.msg" ></textarea>
+                      </div>
+        
+                      
+        
+        
+                                  <div class="form-group">
+                            <button class="btn btn-success btn-md btnSubmit" (click)="submit()">Send</button>
+                                         
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            
+          </div> 
+        

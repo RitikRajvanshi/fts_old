@@ -1,0 +1,75 @@
+<div class="row page-titles">
+  <div class="col-md-12 align-self-center">
+    <h4 class="mb-1 text-muted"> <i><img src="assets/img/man.png" /></i> Manage Department HOD</h4>
+
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12  mb-4">
+    <div class="card border-0 rounded-0 h-100">
+
+      <div class="card-body">
+        <form>
+
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label>Select Department </label>
+                    <select name="Department" class="form-control" (change)="selectDepartment($event)" size="30">
+                      <option *ngFor="let dep of departmentdetail" value={{dep.id}}
+                        [selected]="dep.id == manageHodData.dept_id">{{dep.departmentname}}</option>
+                    </select>
+                  </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Current Department HOD</label>
+                    <input type="text" class="form-control" placeholder=" Department H.O.D"
+                      [ngModelOptions]="{standalone: true}" [(ngModel)]="manageHodData.olddepartment_head" disabled>
+        
+                  </div>
+              </div>
+              <div class="col-md-5">
+     
+                  <div class="form-group">
+                      <label>Select New Department HOD </label>
+                      <select class="form-control" (change)="changeDepartmentHead($event)"  size="30">
+                        <option *ngFor="let user of departmentUserDetail" value="{{user.registration_id}}"
+                          [selected]="user.registration_id  == manageHodData.registration_id">{{user.employeename}}
+                        </option>
+                      </select>
+                    </div>
+          
+                </div>
+        </div>
+
+        
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group pull-right">
+                    <button class="btn btn-success btn-md btnSubmit" (click)="assignHOD()">Update Department HOD</button>
+                  </div>
+            </div>
+        </div>
+         
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="loaderwrapper" *ngIf="showLoader">
+  <div class="loader">
+ 
+  </div>
+  <br/>
+  <p id="loadertext">
+    <label>Loading please wait...</label>
+</p>
+</div>

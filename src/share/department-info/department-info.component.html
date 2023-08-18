@@ -1,0 +1,63 @@
+<div class="row page-titles">
+  <div class="col-md-5 col-8 align-self-center">
+    <h4 class="mb-1 text-muted"> <i class="fa fa-arrow-right" aria-hidden="true"></i> Master Department Information</h4>
+
+  </div>
+
+</div>
+
+
+<div class="row">
+  <div class="col-md-12 mb-4 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+
+      <div class="card-body">
+        <div class="table-responsive" id="Datatable_Master">
+          <table id="TblDatatable" class="table table-bordered  table-striped" >
+            <thead class="table-success">
+              <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Department Name</th>
+                <th scope="col">Department Email Id </th>
+                <!-- <th scope="col">Department Short Name </th> -->
+                <th scope="col">Department Head Designation </th>
+                <th scope="col">Department Head Name </th>
+              
+                
+               
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dept of departmentdetail ; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{dept.departmentname}}</td>
+                <td>{{dept.email_id}} </td>
+                <!-- <td>{{dept.department_shortname}}</td> -->
+                <!-- <td>{{dept.department_head}}</td> -->
+                <td>{{dept.designation}}</td>
+                <td>{{dept.first_name}} {{dept.last_name}}</td>
+               
+              
+               
+
+              </tr>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="loaderwrapper" *ngIf="showLoader">
+  <div class="loader">
+ 
+  </div>
+  <br/>
+  <p id="loadertext">
+    <label>Loading please wait...</label>
+</p>
+</div>
+    

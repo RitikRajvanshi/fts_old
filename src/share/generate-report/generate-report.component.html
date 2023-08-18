@@ -1,0 +1,87 @@
+<div class="row page-titles">
+    <div class="col-md-6 col-sm-12 align-self-center">
+        <h4 class="mb-1 text-muted"><i><img src="assets/img/filerecive.png" /></i> Generate Report</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 mb-4 align-items-stretch">
+        <div class="card border-0 rounded-0 h-100">
+
+            <form [formGroup]="validatingForm">
+                <div class="card-body">
+                    <div class="row">
+
+                        
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                               
+                                <div class="input-group">
+                                   Select Date  &nbsp;&nbsp;
+                                    <!-- <input type="text" class="form-control" formControlName="HolidayDate" [(ngModel)]="orgData.HolidayDate" placeholder="Select Date"> -->
+                                    <input name="startdate" formControlName="generatedate" [(ngModel)]="reportDate"
+                                        type="text" [options]="myOptions" class="form-control txtinput"
+                                        placeholder="DD-MM-YYYY" ngx-mydatepicker #dp="ngx-mydatepicker" readonly />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-primary" (click)="dp.toggleCalendar()">
+                                            <img src="assets/img/calendar.png" alt="">
+                                        </button>
+                                    </span>
+                                </div>
+
+                                <div class="colorred"
+                                    *ngIf="validatingForm.get('generatedate').hasError('required') && validatingForm.get('generatedate').touched">
+                                    Date required</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-success  btnSubmit  " 
+                                (click)="GetReport()"> Get Report </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="card-body">
+            <div class="table-responsive" style="padding-top:13px " id="Datatable_Master">
+                <table class="table table-bordered table-hover" id="TblDatatable">
+                    <thead class="table-success">
+                        <tr>
+                            <th scope="col" style="width: 80px;">S.No</th>
+                            <th scope="col">File Id</th>
+                            <th scope="col">File Name</th>
+                            <th scope="col">Last Receiving Department</th>
+                            <th scope="col">Receiving Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let item of DateWiseData;let i=index">
+                            <td scope="row">{{i + 1}}</td>
+                            <td>{{item.file_id}}</td>
+                            <td>{{item.filename}}</td>
+                            <td>{{item.lastdepartment}}</td>
+                            <td>{{item.received_date | date: 'dd-MM-yyyy HH:mm a'}}</td>
+                            
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="loaderwrapper" *ngIf="showLoader">
+    <div class="loader">
+    </div>
+    <br />
+    <p id="loadertext">
+        <label>Loading please wait...</label>
+    </p>
+</div> -->

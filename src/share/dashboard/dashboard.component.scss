@@ -1,0 +1,85 @@
+/*little-profile*/
+.pro-img {
+    margin-top: -80px;
+    margin-bottom: 20px; 
+
+}
+ .pro-img img {
+      width: 128px;
+      height: 128px;
+      -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      border-radius: 100%; 
+    
+    }
+
+    .zoom {
+       // padding: 50px;
+       // background-color: green;
+        transition: transform .2s; /* Animation */
+      //  width: 200px;
+      //  height: 200px;
+      //  margin: 0 auto;
+      }
+      
+      .zoom:hover {
+        transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+      }
+
+.fa-style i{
+      top: 7%;
+      left: 42%;
+      position: absolute;
+      color: #56829cad;
+}
+.card:hover{
+  cursor: pointer;
+}
+
+#new-navbar{
+background-color: #e4e4e4;
+width: 100%;
+text-align: center;
+}
+
+#new-navbar ul{
+  text-decoration: none;
+  list-style-type: none;
+ margin-bottom: 2px !important;
+}
+
+#new-navbar ul li{
+  display: inline-block;
+  padding: 0px 10px 0px 10px;
+    margin: 15px 5px;
+  border-left: 1px dotted #858585;
+  border-right: 1px dotted #858585;
+}
+
+#new-navbar ul li a{
+  text-decoration: none;
+  color: #2e2e2e;
+  font-weight: bold;
+  transition: .2s;
+}
+
+#new-navbar ul li a:hover{
+  color: #5488c4;
+  transition: .2s;
+}
+
+@media only screen and (max-width:768px){
+
+  #new-navbar ul li{
+    display: block;
+  }
+
+}
+
+#top-logo{
+background-color: #0f7fc4;
+    color: #fff;
+    padding: 25px;
+    margin: -22px -15px 28px -15px;
+
+}

@@ -1,0 +1,188 @@
+<div class="row page-titles">
+  <div class="col-md-5 col-8 align-self-center">
+ 
+    <h4 class="mb-1 text-muted"><i ><img src="assets/img/man.png" style="width: 32px!important; height:32px!important;"/></i> Edit Profile </h4>
+  </div>
+
+</div>
+
+
+
+<div class="row">
+  <div class="col-md-12 mb-4 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+
+      <div class="card-body">
+        <form [formGroup]="validatingForm">
+
+
+          <div class="row">
+            <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+
+              <div class="form-group">
+                <label class="hoverable" for="fileInput">
+                  <!-- <img data-src="{{url}}"  alt="" > -->
+                  <!-- <img [src]="getLinkPicture()"> -->
+                  <img src="{{url}}" alt="{{url}}">
+                  <div class="hover-text">Choose file</div>
+                  <div class="background"></div>
+                </label>
+                <br />
+                <input name="UploadedFile" id="File1" type='file' (change)="onSelectFile($event)">
+
+
+              </div>
+
+              <div class="form-group">
+                <label>First Name </label>
+                <input placeholder="First Name" type="text" class="form-control" formControlName="first_name" [(ngModel)]="profile.first_name" readonly/>
+                <!-- <div class="colorred"
+                  *ngIf="validatingForm.get('first_name').hasError('required') && validatingForm.get('first_name').touched">
+                  First Name required</div> -->
+              </div>
+
+              <div class="form-group">
+                <label>Last Name </label>
+                <input placeholder="Last Name" type="text" class="form-control" formControlName="last_name" [(ngModel)]="profile.last_name" readonly/>
+                <!-- <div class="colorred"
+                  *ngIf="validatingForm.get('last_name').hasError('required') && validatingForm.get('last_name').touched">
+                  Last Name required</div> -->
+              </div>
+
+              <div class="form-group ">
+                <label for="email">Nick Name </label>
+                <input placeholder="Nick Name " class="form-control here" type="text" formControlName="nickname"
+                  [(ngModel)]="profile.nickname" >
+              </div>
+
+              <div class="form-group ">
+                <label for="email">Email </label>
+                <input placeholder="Email" class="form-control here" type="text" formControlName="email"
+                  [(ngModel)]="profile.email" readonly>
+              </div>
+
+              <div class="form-group ">
+                <label for="text">Designation </label>
+                <input placeholder="Designation" class="form-control here" type="text" formControlName="designation"
+                  [(ngModel)]="profile.designation" readonly>
+              </div>
+
+              
+
+            </div>
+
+
+            <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+
+              <!-- <div class="form-group ">
+                <label for="text">Code </label>
+                <input placeholder="Code" class="form-control here" type="text" formControlName="code"
+                  [(ngModel)]="profile.code" readonly>
+              </div>
+
+              <div class="form-group ">
+                <label for="text">P Code </label>
+                <input placeholder="P Code" class="form-control here" type="text" formControlName="pcode"
+                  [(ngModel)]="profile.pcode" readonly>
+              </div> -->
+
+              <div class="form-group ">
+                <label for="text">Employee Id </label>
+                <input placeholder="Employee Id" class="form-control here" type="text" formControlName="employeeid"
+                  [(ngModel)]="profile.employeeid" readonly>
+              </div>
+
+              <div class="form-group">
+                <label>Phone Number </label>
+                <input  type="text" placeholder="Phone Number" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" min='0'  maxlength='10' class="form-control" formControlName="mobileno" [(ngModel)]="profile.mobileno" />
+                <!-- <div class="colorred"
+                  *ngIf="validatingForm.get('mobileno').hasError('required') && validatingForm.get('mobileno').touched">
+                  Mobileno no required</div> -->
+                <!-- <div class="colorred"
+                  *ngIf="validatingForm.get('mobileno').hasError('pattern') && validatingForm.get('mobileno').touched">
+                  Mobileno not valid</div> -->
+              </div>
+
+
+              <div class="form-group ">
+                <label for="text">Department Name </label>
+
+                <!-- <input type="text" placeholder="Department Name" class="form-control" formControlName="Department" [(ngModel)]="profile.department" /> -->
+                <!--<input type="text" class="form-control" formControlName="Department" [(ngModel)]="profile.department"/>
+                                         <div  class="colorred" *ngIf="validatingForm.get('Department').hasError('required') && validatingForm.get('Department').touched">required</div> -->
+                <select class="form-control" formControlName="Department"  (change)=GetDepartmentId($event) [(ngModel)]="profile.departmentid" disabled>
+                  <option *ngFor="let item of departmentdetail" value="{{item.id}}"
+                    [selected]="item.id == profile.departmentid">{{item.departmentname}}</option>
+                </select>
+              </div>
+
+
+              <div class="form-group">
+                <label>Office Intercom Number </label>
+                <input type="text" placeholder="Intercom Number" min='0' maxlength='20' onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" (keypress)="keyPress($event)" class="form-control" formControlName="intercom_number" [(ngModel)]="profile.intercom_number" />
+              </div>
+
+
+              <div class="form-group ">
+                <label for="newpass">Address </label>
+
+                <textarea cols="40" placeholder="Address" rows="5" class="form-control here" formControlName="Address"
+                  [(ngModel)]="profile.address" readonly></textarea>
+                <!-- <div class="colorred"
+                  *ngIf="validatingForm.get('Address').hasError('required') && validatingForm.get('Address').touched">
+                  required</div> -->
+
+
+
+
+              </div>
+
+              <div class="form-group ">
+                <label for="publicinfo"> My Introduction </label>
+
+                <textarea cols="40" rows="4" placeholder="My Introduction" class="form-control here" formControlName="Info"
+                  [(ngModel)]="profile.info"></textarea>
+                <!-- <div class="colorred"
+                  *ngIf="validatingForm.get('Info').hasError('required') && validatingForm.get('Info').touched">required
+                </div> -->
+
+
+
+              </div>
+
+              <div class="form-group float-right">
+                <button class="btn btn-success " type="submit" (click)="UpdateProfile()"> Update My Profile</button>
+
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+<div id="spinner">
+
+  <p id="spinnertext">
+    <label>Loading please wait...</label>
+  </p>
+</div>

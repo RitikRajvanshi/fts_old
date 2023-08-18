@@ -1,0 +1,41 @@
+
+<div class="row page-titles">
+    <div class="col-md-12 align-self-center">
+        <h4 class="mb-1 text-muted"><i class="fa fa-plus"></i> Add Suggestions/Feedback</h4>
+      
+    </div>
+  
+</div>
+
+<div class="row">
+        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 offset-xl-3 mb-4">
+          <div class="card border-0 rounded-0 h-100">
+          
+            <div class="card-body">
+              <form>
+             
+    
+                  <div class="form-group">
+                     
+                  </div>
+    
+    
+                  <div class="form-group">
+                                  <label>Please Provide Suggestions Or Feedback</label>
+                                  <textarea  id="summernote" [ngxSummernote]="config"  [(ngModel)]="addnotes.notes_description" [ngModelOptions]="{standalone: true}" ></textarea>
+                  </div>
+    
+                  
+    
+    
+                              <div class="form-group">
+                        <button class="btn btn-success btn-md btnSubmit" [disabled]="isDisabled" (click)="addNotes()">Save Suggestions</button> &nbsp;
+                        <button (click)="back()"  class="btn btn-success">Back</button>            
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+      </div> 
+    

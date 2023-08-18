@@ -1,0 +1,47 @@
+<div class="row page-titles">
+    <div class="col-md-5 col-8 align-self-center">
+
+        <h4 class="mb-1 text-muted"><i><img src="assets/img/man.png"
+                    style="width: 32px!important; height:32px!important;" /></i> Database Design </h4>
+    </div>
+
+</div>.
+
+
+
+<div class="row">
+    <div class="col-md-12 mb-4 align-items-stretch">
+        <div class="card border-0 rounded-0 h-100">
+
+            <div class="card-body">
+
+                <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12 col-xs-12 offset-xl-4 offset-lg-3 offset-md-2">
+                    <select name="Department" size="5" (change)="selectchangeforTableNamw($event)" class="form-control">
+                        <option *ngFor="let name of table_name" value="{{name.txt_table_name}}"
+                            [selected]="name.txt_table_name  == tbl_name">
+                            {{name.txt_table_name}}</option>
+                    </select>
+                </div>
+
+                <div class="table-responsive" style="padding-top:13px " id="Datatable_Master">
+
+                    <table class="table table-bordered table-hover" id="TblDatatable">
+                        <thead class="table-success">
+                            <tr>
+                                <th scope="col" *ngFor="let item of HeaderName">{{item}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor="let column of table_columnData;let i=index">
+                                <td *ngFor="let item of HeaderName" scope="row">{{column[item]}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

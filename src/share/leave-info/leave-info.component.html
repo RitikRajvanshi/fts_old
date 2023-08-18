@@ -1,0 +1,125 @@
+<div class="row page-titles">
+    <div class="col-md-6 align-self-center">
+        <h4 class="mb-1 text-muted"> <i><img src="assets/img/info.png" /></i> My Leave Information</h4>
+    </div>
+    <div class="col-md-6 col-sm-12 align-self-center">
+        <div class="float-right">
+            <a href="#" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal"> Add Leave
+                Information</a>&nbsp;
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 mb-4 align-items-stretch">
+        <div class="card border-0 rounded-0 h-100">
+            <div class="card-body">
+                <div class="table-responsive" id="Department_Master">
+                    <table id="TblDatatable" class="table table-bordered table-striped">
+                        <thead class="table-success">
+                            <tr>
+                                <th scope="col">S.No</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Day</th>
+                                <th scope="col">Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let leave of LeaveData ; let i=index">
+                                <td>{{i+1}}</td>
+                                <td>{{leave.leavedate | date: 'dd-MMM-yyyy' }}</td>
+                                <td>{{leave.day}}</td>
+                                <td>{{leave.remarks}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- The Modal -->
+<form [formGroup]="validatingForm">
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4>Add Leave Information</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Select Start Date </label>
+                        <div class="input-group">
+                            <!-- <input type="text" class="form-control" formControlName="HolidayDate" [(ngModel)]="orgData.HolidayDate" placeholder="Select Date"> -->
+                            <input name="startdate" formControlName="leave_start" [(ngModel)]="orgData.leave_start"
+                                type="text" [options]="myOptions" class="form-control txtinput" placeholder="DD-MM-YYYY"
+                                ngx-mydatepicker #dp="ngx-mydatepicker" readonly />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-primary" (click)="dp.toggleCalendar()">
+                                    <img src="assets/img/calendar.png" alt="">
+                                </button>
+                            </span>
+                        </div>
+
+                        <div class="colorred"
+                            *ngIf="validatingForm.get('leave_start').hasError('required') && validatingForm.get('leave_start').touched">
+                            Date required</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select End Date </label>
+                        <div class="input-group">
+                            <!-- <input type="text" class="form-control" formControlName="HolidayDate" [(ngModel)]="orgData.HolidayDate" placeholder="Select Date"> -->
+                            <input name="enddate" formControlName="leave_end" [(ngModel)]="orgData.leave_end"
+                                type="text" [options]="myOptions" class="form-control txtinput" placeholder="DD-MM-YYYY"
+                                ngx-mydatepicker #dp1="ngx-mydatepicker" readonly />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-primary" (click)="dp1.toggleCalendar()">
+                                    <img src="assets/img/calendar.png" alt="">
+                                </button>
+                            </span>
+                        </div>
+
+                        <div class="colorred"
+                            *ngIf="validatingForm.get('leave_end').hasError('required') && validatingForm.get('leave_end').touched">
+                            Date required</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Remarks</label>
+                        <textarea cols="40" placeholder="Remarks" rows="5" class="form-control here" formControlName="remarks"
+                        [(ngModel)]="orgData.remarks" ></textarea>
+
+                        <div class="colorred"
+                            *ngIf="validatingForm.get('remarks').hasError('required') && validatingForm.get('remarks').touched">
+                            Remarks required</div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button class="btn btn-success btn-md btnSubmit" (click)="submit()">Submit</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="loaderwrapper" *ngIf="showLoader">
+    <div class="loader">
+   
+    </div>
+    <br/>
+    <p id="loadertext">
+      <label>Loading please wait...</label>
+  </p>
+  </div>

@@ -1,0 +1,15 @@
+#datatable_wrapper .dt-buttons {
+    float:none;  
+    text-align:center;
+  }
+
+  .excelButton{
+    background-color:LightGreen;
+  }
+
+  .dt-buttons a:nth-child(1){
+    background-color:LightGreen;
+}
+
+button.dt-button, div.dt-button, a.dt-button
+{background-image:none;}

@@ -1,0 +1,120 @@
+<div class="row page-titles">
+  <div class="col-md-5 col-8 align-self-center">
+    <h4 class="mb-1 text-muted"><i><img src="assets/img/filerecive.png" /></i> Files to be Received</h4>
+
+  </div>
+
+</div>
+
+
+<div class="row">
+  <div class="col-md-12 mb-4 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+
+      <div class="card-body">
+        <div class="table-responsive" id="Datatable_Master">
+          <table id="TblDatatable" class="table table-bordered table-hover">
+            <thead class="table-success">
+              <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">File Id</th>
+                <th scope="col">File Category</th>
+                <!-- <th scope="col">File Name</th> -->
+                <th scope="col">Sender Department</th>
+                <th scope="col">Sender Name</th>
+                <th scope="col">Sending Date </th>
+
+
+                <!-- <th scope="col">Courier Boy</th> -->
+                <th scope="col"> </th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let file of totalfiles ; let i=index">
+                <td>{{i+1}}</td>
+                <!-- <td><a href="#" data-toggle="modal" data-target="#popup" (click)="popup_filedata(file.filename, file.subject)">{{file.file_id}}</a></td> -->
+                <td><a href="#" data-toggle="modal" data-target="#popup" (click)="getfilecreationInfo(file.file_id)">{{file.file_id}}</a></td>
+                <!-- <td>{{file.filename}}</td> -->
+                <td>{{file.file_category}}</td>
+                <td>{{file.assigned_by_departmentname}}</td>
+                <td>{{file.sendername}}</td>
+                <td>{{file.assigneddate | date: 'dd-MM-yyyy HH:mm a'}}</td>
+                <td><a class=" btn btn-outline-danger"  (click)="assignToUser(file.id, file)">Receive</a> </td>
+              </tr>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!--popup_detail Modal -->
+<div class="modal fade" id="popup" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <div class="modal-header ">
+        <label>File Details</label>
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+          <span class="sr-only">Close</span></button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-md-12">
+              <label><strong>File Name :</strong></label> &nbsp;{{popupDetail.filename}}
+          </div>
+          <div class="col-md-12">
+              <label><strong>Subject :</strong></label> &nbsp;{{popupDetail.subject }}
+          </div>
+          <div class="col-md-12">
+            <label><strong>Category :</strong></label> &nbsp;{{popupDetail.filecategory }}
+        </div>
+        <div class="col-md-12">
+            <label><strong>Priority :</strong></label> &nbsp;{{popupDetail.priority }}
+        </div>
+        <div class="col-md-12">
+          <label><strong>Department Name :</strong></label> &nbsp;{{popupDetail.departmentname }}
+      </div>
+      <div class="col-md-12">
+        <label><strong>Created Date :</strong></label> &nbsp;{{popupDetail.createddate | date: 'dd-MM-yyyy HH:mm a' }}
+    </div>
+    <div class="col-md-12">
+      <label><strong>Created By :</strong></label> &nbsp;{{popupDetail.createdby }}
+  </div>
+  <div class="col-md-12">
+    <label><strong>Status :</strong></label> &nbsp;{{popupDetail.status }}
+</div>
+     
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loaderwrapper" *ngIf="showLoader">
+  <div class="loader">
+ 
+  </div>
+  <br/>
+  <p id="loadertext">
+    <label>Loading please wait...</label>
+</p>
+</div>
+
+<div class="loaderwrapper" *ngIf="showLoader1">
+  <div class="loader">
+ 
+  </div>
+  <br/>
+  <p id="loadertext">
+    <label>Receiving...</label>
+</p>
+</div>

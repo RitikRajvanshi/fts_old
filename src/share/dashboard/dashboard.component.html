@@ -1,0 +1,239 @@
+
+
+
+
+<div class="row">
+
+    <div class="col-xl-3 col-lg-3 col-md-6 col-12 mb-4 ">
+      <div class="card border-0 rounded-0 zoom">
+          <img class="card-img-top" src="assets/img/BSIP.jpg" alt="Card image cap">
+        <div class="card-body" (click)="editprofile()" >
+          <div class="card-innerBody text-center">
+              <!-- <div class="pro-img"><img [src]="getLinkPicture()" alt="user" class="mx-auto d-block" /></div> -->
+              <div class="pro-img"><img src="{{url}}" alt="user" class="mx-auto d-block" /></div>
+           
+            
+              <h5 class="m-b-0" style="font-size: 16px"><b>Welcome {{username}}</b></h5>
+                 <p style="font-size: 14px"><b>Department-</b> {{department}} <br/><b> Designation- </b> {{designation}}</p>
+             
+          </div>
+        </div>
+    
+      </div>
+
+      
+    </div>
+
+
+
+
+    <div class="col-xl-2 col-lg-3 col-md-6 col-12 mb-4">
+      <div class="card border-0 rounded-0 zoom" style="height: 291px;"  >
+          <img class="card-img-top" src="assets/img/file-creation.jpg" alt="Card image cap">
+        
+          <div class="card-body" (click)="redirectToFileCreation()">
+          <div class="card-innerBody text-center">
+        
+            
+              <h5 class="m-b-0" style="font-size: 16px"><b>File Creation</b></h5>
+                
+             
+          </div>
+        </div>
+        
+    
+      </div>
+
+      
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="col-xl-2 col-lg-3 col-md-6 col-12 mb-4">
+      <div class="card border-0 rounded-0 zoom" style="height: 291px;"  >
+          <img class="card-img-top" src="assets/img/file.jpeg" alt="Card image cap">
+        
+          <div class="card-body" (click)="redirectToFileReceive()">
+          <div class="card-innerBody text-center">
+              <!-- <div class="pro-img"><img [src]="getLinkPicture()" alt="user" class="mx-auto d-block" /></div> -->
+              <!-- <div class="pro-img"><img src="{{url}}" alt="user" class="mx-auto d-block" /></div> -->
+           
+            
+              <h5 class="m-b-0" style="font-size: 16px"><b>Files to be Received</b></h5>
+                 <p style="font-size: 14px"><b>Total Files-</b> {{totalFileTobeReceivedCount}}
+                   <!-- <br/><b> Designation- </b> {{designation}} -->
+                  </p>
+             
+          </div>
+        </div>
+        
+    
+      </div>
+
+      
+    </div>
+
+    <div class="col-xl-2 col-lg-3 col-md-6 col-12 mb-4">
+      <div class="card border-0 rounded-0 zoom" style="height: 291px;">
+          <img class="card-img-top" src="assets/img/desk.jpg" alt="Card image cap">
+        <div class="card-body"  (click)="redirectToFileOnMyDesk()">
+          <div class="card-innerBody text-center">
+              <!-- <div class="pro-img"><img [src]="getLinkPicture()" alt="user" class="mx-auto d-block" /></div> -->
+              <!-- <div class="pro-img"><img src="{{url}}" alt="user" class="mx-auto d-block" /></div> -->
+           
+            
+              <h5 class="m-b-0" style="font-size: 16px"><b>Files On my Desk</b></h5>
+                 <p style="font-size: 14px"><b>Total Files-</b> {{totalFileCount}} <br/>
+                <span style="color: red;"><b>Total Files, Which is  More Than File Holding Days-</b></span> {{totalFileCountForUprrerHoldingDays}}  
+                  <!-- <br/><b> Designation- </b> {{designation}} -->
+                </p>
+             
+          </div>
+        </div>
+    
+      </div>
+
+      
+    </div>
+
+    <div class="col-xl-2 col-lg-3 col-md-6 col-12 mb-4">
+      <div class="card border-0 rounded-0 zoom" style="height: 291px;">
+          <img class="card-img-top" src="assets/img/track.jpg" alt="Card image cap">
+        <div class="card-body" (click)="redirectToFileTracker()" > 
+          <div class="card-innerBody text-center" >
+              <!-- <div class="pro-img"><img [src]="getLinkPicture()" alt="user" class="mx-auto d-block" /></div> -->
+              <!-- <div class="pro-img"><img src="{{url}}" alt="user" class="mx-auto d-block" /></div> -->
+           
+            
+              <h5 class="m-b-0" style="font-size: 16px"><b>File Tracker</b></h5>
+                 <p style="font-size: 14px"><b>Total Files-</b> {{FileTrackerCount}}
+                   <!-- <br/><b> Designation- </b> {{designation}} -->
+                  </p>
+             
+          </div>
+        </div>
+    
+      </div>
+
+      
+    </div>
+
+    
+
+  </div>
+
+  <div class="row">
+
+    <!-- <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-4">
+      <div class="card border-0 rounded-0 zoom" style="height: 291px;">
+          <img class="card-img-top" src="assets/img/BSIP.jpg" alt="Card image cap">
+        <div class="card-body" (click)="redirectToMasterDepartmentInformation()" style="padding-top: 87px;">
+          <div class="card-innerBody text-center"> -->
+              <!-- <div class="pro-img"><img [src]="getLinkPicture()" alt="user" class="mx-auto d-block" /></div> -->
+              <!-- <div class="pro-img"><img src="{{url}}" alt="user" class="mx-auto d-block" /></div> -->
+           
+            
+              <!-- <h5 class="m-b-0" style="font-size: 16px"><b>Master Department Information</b></h5> -->
+                 <!-- <p style="font-size: 14px"><b>Department-</b> {{department}} <br/><b> Designation- </b> {{designation}}</p> -->
+             
+          <!-- </div>
+        </div>
+    
+      </div>
+
+      
+    </div> -->
+
+    <!-- <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-4">
+      <div class="card border-0 rounded-0 zoom" style="height: 291px;">
+          <img class="card-img-top" src="assets/img/BSIP.jpg" alt="Card image cap">
+        <div class="card-body" (click)="redirectToStaffInformation()" style="padding-top: 87px;">
+          <div class="card-innerBody text-center"> -->
+              <!-- <div class="pro-img"><img [src]="getLinkPicture()" alt="user" class="mx-auto d-block" /></div> -->
+              <!-- <div class="pro-img"><img src="{{url}}" alt="user" class="mx-auto d-block" /></div> -->
+           
+            
+              <!-- <h5 class="m-b-0" style="font-size: 16px"><b>Staff Information</b></h5> -->
+                 <!-- <p style="font-size: 14px"><b>Department-</b> {{department}} <br/><b> Designation- </b> {{designation}}</p> -->
+             
+          <!-- </div>
+        </div>
+        
+    
+      </div>
+
+      
+    </div> -->
+
+    <!-- <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-4">
+      <div class="card border-0 rounded-0 zoom" style="height: 291px;">
+          <img class="card-img-top" src="assets/img/BSIP.jpg" alt="Card image cap">
+        <div class="card-body" (click)="redirectToOrganizationHoliday()" style="padding-top: 87px;">
+          <div class="card-innerBody text-center"> -->
+              <!-- <div class="pro-img"><img [src]="getLinkPicture()" alt="user" class="mx-auto d-block" /></div> -->
+              <!-- <div class="pro-img"><img src="{{url}}" alt="user" class="mx-auto d-block" /></div> -->
+           
+            
+              <!-- <h5 class="m-b-0" style="font-size: 16px"><b>Organization Holiday</b></h5> -->
+                 <!-- <p style="font-size: 14px"><b>Department-</b> {{department}} <br/><b> Designation- </b> {{designation}}</p> -->
+             
+          <!-- </div>
+        </div>
+    
+      </div>
+
+      
+    </div> -->
+
+    <!-- <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-4">
+      <div class="card border-0 rounded-0 zoom" style="height: 291px;">
+          <img class="card-img-top"  src="assets/img/BSIP.jpg" alt="Card image cap">
+        <div class="card-body" (click)="redirectToFileHoldingDays()" style="padding-top: 87px;">
+          <div class="card-innerBody text-center"> -->
+              <!-- <div class="pro-img"><img [src]="getLinkPicture()" alt="user" class="mx-auto d-block" /></div> -->
+              <!-- <div class="pro-img"><img src="{{url}}" alt="user" class="mx-auto d-block" /></div> -->
+           
+            
+              <!-- <h5 class="m-b-0" style="font-size: 16px"><b>File Holding Days</b></h5> -->
+                 <!-- <p style="font-size: 14px"><b>Department-</b> {{department}} <br/><b> Designation- </b> {{designation}}</p> -->
+             
+          <!-- </div>
+        </div>
+    
+      </div>
+
+      
+    </div>
+
+    
+
+  </div> -->
+
+
+  <!--    navbar item start    -->
+<div id="new-navbar">
+  <div class="row">
+    <div class="col-md-12">
+      <ul>
+          <li><a [routerLink]="['/user/welcome/edit-profile']" >Edit Profile</a></li>
+          <li><a [routerLink]="['/user/welcome/change-password']" >Change Password</a></li>
+          <li><a [routerLink]="['/user/welcome/file-initiation']" >File Creation</a></li>
+          <li><a [routerLink]="['/user/welcome/leave-info']" >My Leave Information</a></li>
+        <li><a [routerLink]="[]" (click)="redirectToMasterDepartmentInformation()">Department Information</a></li>
+        <li><a [routerLink]="[]" (click)="redirectToStaffInformation()">Staff Information</a></li>
+        <li><a [routerLink]="[]" (click)="redirectToOrganizationHoliday()">Organization Holiday</a></li>
+        <li><a [routerLink]="[]" (click)="redirectToFileHoldingDays()">File Holding Days</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

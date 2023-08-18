@@ -1,0 +1,73 @@
+<div class="row page-titles">
+    <div class="col-md-12 align-self-center">
+        <h4 class="mb-1 text-muted"> <i><img src="assets/img/notebook.png" /></i> Manage File Holding Days</h4>
+
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+        <div class="card border-0 rounded-0 h-100">
+
+            <div class="card-body">
+                <form>
+
+                   <div class="row"> 
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                        <label>Select Master Department</label>
+                                        <select name="Department" class="form-control" (change)="selectDepartment($event)" size="28">
+                                            <option *ngFor="let dept of departmentdetail" value={{dept.id}}
+                                                [selected]="dept.id == fileholidays.department_id">{{dept.departmentname}}</option>
+                                        </select>
+                                    </div>
+                        </div>
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                        <label>File Holding Days</label>
+                                        <input type="number" min="0" class="form-control" [(ngModel)]="fileholidays.NormalFileHoldingDays"
+                                            [ngModelOptions]="{standalone: true}">
+                                    </div>
+                
+                
+                                    <div class="form-group">
+                                        <button class="btn btn-success btn-md btnSubmit" (click)="submit()">Submit</button>
+                
+                                    </div>
+                            </div>
+                   </div>
+
+                    
+
+
+                    <!-- <div class="form-group">
+                        <label>Urgent File Holding Days</label>
+                        <input type="number" min="0" class="form-control" [(ngModel)]="fileholidays.UrgentFileHoldingDays"
+                            [ngModelOptions]="{standalone: true}">
+                    </div> -->
+
+                    <!-- <div class="form-group">
+                        <label>Immediate File Holding Days</label>
+                        <input type="number" min="0" class="form-control" [(ngModel)]="fileholidays.ImmediateFileHoldingDays"
+                            [ngModelOptions]="{standalone: true}">
+                    </div> -->
+
+                   
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="loaderwrapper" *ngIf="showLoader">
+    <div class="loader">
+   
+    </div>
+    <br/>
+    <p id="loadertext">
+      <label>Loading please wait...</label>
+  </p>
+  </div>
