@@ -1,0 +1,87 @@
+<div class="row page-titles">
+    <div class="col-md-6 col-sm-12 align-self-center">
+        <h4 class="mb-1 text-muted"><i><img src="assets/img/filerecive.png" /></i> Master File Tracker</h4>
+    </div>
+    <div class="col-md-6 col-sm-12 align-self-center">
+        <div class="float-right"> <h5 class="mb-1 text-muted">Total Files : {{TotalFilesCount}}</h5>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 mb-4 align-items-stretch">
+        <div class="card border-0 rounded-0 h-100">
+
+            <div class="card-body">
+
+                <div class="table-responsive" style="padding-top:13px " id="Datatable_Master">
+                    <select name="filename" class="form-control" (change)="selectchangeforfile($event)" size="11">
+                        <option *ngFor="let filename of FileNameDetails" value={{filename.file_id}}
+                            [selected]="filename.file_id == fileID">{{filename.filename}}</option>
+                    </select>
+                    <br />
+
+                    <div class="row">
+           
+                            <div class="col-md-8 offset-2 for-font">
+                                <h6>File Id : <span style="color: green">{{fileID}}</span></h6>
+                                <h6>File Name : <span style="color: green">{{fileName}}</span></h6>
+                                <h6>File Subject : <span style="color: green">{{fileSubject}}</span></h6> 
+                              </div>                            
+                          </div>
+
+                    <!-- <div>
+                        <h4 style="text-align: center">File Name : <span style="color: green">{{fileName}}</span></h4>
+                        <h5>File Id : <span style="color: green">{{fileID}}</span></h5>
+                        <h5>File Name : <span style="color: green">{{fileName}}</span></h5>
+                        <h5>File Subject : <span style="color: green">{{fileSubject}}</span></h5>
+                    </div> -->
+                    <table class="table table-bordered table-hover" id="TblDatatable">
+                        <thead class="table-success">
+                            <tr>
+                                <th scope="col" style="width: 80px;">S.No</th>
+                                <th scope="col">Sender Department</th>
+                                <th scope="col">Sender Name</th>
+                                <th scope="col">Sending Date</th>
+                                <th scope="col">Receiver Department</th>
+                                <th scope="col">Receiver Name</th>
+                                <th scope="col">Receiving Date</th>
+                                <th scope="col">Delivery staff</th>
+                                <th scope="col">User Remarks</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor="let item of FileTrackingData;let i=index">
+                                <td scope="row">{{i + 1}}</td>
+                                <td>{{item.senderdept}}</td>
+                                <td>{{item.sendername}}</td>
+                                <td>{{item.assigneddate | date: 'dd-MM-yyyy HH:mm a'}}</td>
+                                <td>{{item.receiverdept}}</td>
+                                <td>{{item.receivername}}</td>
+                                <td>{{item.received_date | date: 'dd-MM-yyyy HH:mm a'}}</td>
+                                <td>{{item.courierboy_name}}</td>
+                                <td>{{item.file_remarks}}</td>
+                                <td>{{item.received_status | titlecase}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="loaderwrapper" *ngIf="showLoader">
+    <div class="loader">
+    </div>
+    <br />
+    <p id="loadertext">
+        <label>Loading please wait...</label>
+    </p>
+</div>

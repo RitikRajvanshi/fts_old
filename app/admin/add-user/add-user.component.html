@@ -1,0 +1,123 @@
+<div class="row page-titles">
+  <div class="col-md-12 align-self-center">
+    <h4 class="mb-1 text-muted"> <i><img src="assets/img/users.png" /></i> {{title}}</h4>
+
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12  mb-4">
+    <div class="card border-0 rounded-0 h-100">
+
+      <div class="card-body">
+        <form [formGroup]="validatingForm">
+
+          <div class="row">
+
+         
+<div class="col-md-4">
+    <div class="form-group">
+        <label>First Name <span class="colorred">*</span></label>
+        <input type="text" class="form-control" formControlName="first_name" [(ngModel)]="UserData.first_name">
+        <div class="colorred"
+          *ngIf="validatingForm.get('first_name').hasError('required') && validatingForm.get('first_name').touched">First Name
+          required</div>
+      </div>
+
+      <div class="form-group">
+        <label>Last Name <span class="colorred">*</span></label>
+        <input type="text" class="form-control" formControlName="last_name" [(ngModel)]="UserData.last_name">
+        <div class="colorred"
+          *ngIf="validatingForm.get('last_name').hasError('required') && validatingForm.get('last_name').touched">Last Name
+          required</div>
+      </div>
+
+      <div class="form-group">
+          <label>Employee Id <span class="colorred">*</span></label>
+          <input type="text" class="form-control" formControlName="employeeid" [(ngModel)]="UserData.employeeid">
+          <div class="colorred"
+            *ngIf="validatingForm.get('employeeid').hasError('required') && validatingForm.get('employeeid').touched">
+            Employee Id required</div>
+        </div>
+
+        <div class="form-group">
+          <label>Email <span class="colorred">*</span></label>
+          <input type="email" class="form-control" formControlName="email" [(ngModel)]="UserData.email">
+          <div class="colorred"
+            *ngIf="validatingForm.get('email').hasError('required') && validatingForm.get('email').touched">Email
+            required</div>
+          <div class="colorred"
+            *ngIf="validatingForm.get('email').hasError('pattern') && validatingForm.get('email').touched">Email not
+            valid</div>
+        </div>
+
+
+        <div class="form-group" [hidden]="hiddenPassword">
+          <label>Password <span class="colorred">*</span></label>
+          <input type="password" class="form-control" formControlName="password" [(ngModel)]="UserData.password" >
+          <div class="colorred"
+            *ngIf="validatingForm.get('password').hasError('required') && validatingForm.get('password').touched">
+            Password required</div>
+        </div>
+
+        <div class="form-group" [hidden]="hiddenConfirmPassword">
+          <label>Confirm Password <span class="colorred">*</span></label>
+          <input type="password" class="form-control" formControlName="Conpassword"
+            [(ngModel)]="UserData.Conpassword">
+          <div class="colorred"
+            *ngIf="validatingForm.get('Conpassword').hasError('required') && validatingForm.get('Conpassword').touched">
+            Password required</div>
+          <div class="colorred"
+            *ngIf="validatingForm.get('Conpassword').hasError('noMatch') && validatingForm.get('Conpassword').touched">
+            Password does not match.</div>
+        </div>
+
+
+        <div class="form-group">
+          <button class="btn btn-success btn-md btnSubmit" (click)="registerNow()" [hidden]="hiddenAddNewUserBtn">Add New User</button>&nbsp;
+          <button class="btn btn-success btn-md btnSubmit" (click)="updateUser()" [hidden]="hiddenUpdateUserBtn">Update User</button>&nbsp;
+          <a routerLink="../manage-user" class="btn btn-danger">Back</a>
+        </div>
+
+</div>
+<div class="col-md-4">
+    <div class="form-group">
+        <label>Department </label>
+        <select name="Department" class="form-control" (change)="selectDepartment($event)" size="28">
+          <option *ngFor="let dep of departmentdetail" value={{dep.id}}
+            [selected]="dep.id == UserData.departmentid">{{dep.departmentname}}</option>
+        </select>
+        <label style="color: red; font-size: 12px;">{{lbl_Department}}</label>
+      </div>
+
+  </div>
+  <div class="col-md-4">
+      <div class="form-group">
+          <label>Designation</label>
+          <select class="form-control" (change)="changeDesignation($event)" size="28">
+            <option *ngFor="let designation of designationdetail" value="{{designation.id}}"
+              [selected]="designation.id == UserData.designation_id">
+              {{designation.designation}}
+            </option>
+          </select>
+          <label style="color: red; font-size: 12px;">{{lbl_Designation}}</label>
+        </div>
+
+    </div>
+
+  </div>
+
+        
+
+        
+        
+        
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

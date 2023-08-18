@@ -1,0 +1,112 @@
+<div class="row page-titles">
+    <div class="col-md-12 col-sm-12 align-self-center">
+        <h4 class="mb-1 text-muted"> <i><img src="assets/img/computer.png" /></i> Add Department - To Add New Department
+            FTS Needs 5 Mandatory Parameters</h4>
+
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12  mb-4">
+        <div class="card border-0 rounded-0 h-100">
+
+            <div class="card-body ">
+                <form [formGroup]="validatingForm">
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label>Department Name</label>
+                                <input type="text" [(ngModel)]="department.departmentName"
+                                    formControlName="departmentname" class="form-control" />
+                                <div class="colorred"
+                                    *ngIf="validatingForm.get('departmentname').hasError('required') && validatingForm.get('departmentname').touched">
+                                    Department name required.</div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label>Department Email</label>
+                                <input type="text" [(ngModel)]="department.departmentEmail"
+                                    formControlName="departmentEmail" class="form-control" />
+                                <div class="colorred"
+                                    *ngIf="validatingForm.get('departmentEmail').hasError('required') && validatingForm.get('departmentEmail').touched">
+                                    Department email required.</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" [(ngModel)]="department.departmentPassword"
+                                    formControlName="departmentPassword" class="form-control" />
+                                <div class="colorred"
+                                    *ngIf="validatingForm.get('departmentPassword').hasError('required') && validatingForm.get('departmentPassword').touched">
+                                    Password required.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Department Head Name</label>
+                                <select class="form-control" (change)=changeDepartmentHead($event) size="20">
+                                    <option *ngFor="let user of departmentUserDetail" value="{{user.registration_id}} "
+                                        [selected]="user.registration_id == department.departmentHeadId">
+                                        {{user.first_name}} {{user.last_name}}
+                                    </option>
+                                </select>
+                            </div>
+
+
+
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label>Department Head Designation</label>
+                                <select class="form-control" (change)=changeDepartmentHeadDesignation($event) size="20">
+                                    <option *ngFor="let designation of designationData" value="{{designation.id}} "
+                                        [selected]="designation.id == department.designation_id">
+                                        {{designation.designation}}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-group ">
+                                <button class="btn btn-success" (click)="AddDepartment()">Add</button>&nbsp;
+                                <a routerLink="../add-department" class="btn btn-danger">Back</a>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <!-- <div class="row">                    
+                    <div class="col-md-6">
+                           
+                                <div class="form-group">
+                                        <label>Department Short Name</label>
+                                        <input type="text" [(ngModel)]="department.departmentshortname"
+                                            formControlName="departmentshortname" class="form-control" />
+                                      
+                                    </div>                              
+                    </div>
+                    <div class="col-md-6">
+                        
+                    </div>
+                 </div>
+ -->
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

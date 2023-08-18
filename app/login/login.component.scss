@@ -1,0 +1,182 @@
+.bg-dark{
+   background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0 !important;
+  
+}
+
+
+
+.login-container{
+    margin-top: 3%;
+    margin-bottom: 5%;
+  
+}
+.login-logo{
+    position: relative;
+    margin-left: -32.5%;
+}
+.login-logo img{
+    position: absolute;
+    width: 20%;
+    margin-top: 19%;
+    background: #708089;
+    border-radius: 4.5rem;
+    padding: 5%;
+}
+.login-form-1{
+    padding: 2% 4%;
+    background: #ffffff;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3{
+    text-align: center;
+    margin-bottom:2%;
+    color: rgb(63, 63, 63);
+    font-weight: 800;
+}
+.btn{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btnSubmit{
+    font-weight: 600;
+    width: 50%;
+    color: #282726;
+    background-color: #fff;
+    border: none;
+    border-radius: 1.5rem;
+    padding:2%;
+}
+.btnForgetPwd{
+    color: rgb(75, 147, 214);
+    font-weight: 500;
+    text-decoration: none;
+}
+.btnForgetPwd:hover{
+    text-decoration:none;
+    color:rgb(58, 58, 58);
+}
+
+.login-form-2{
+    padding: 5%;
+    background: #2a658a;
+   /* background-image: url("/assets/images/file.jpg"); */
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    background-size: cover;
+    min-height: 560px;
+    border-radius: 0 10px 10px 0;
+    
+    font-size: 15px;
+}
+.login-form-2 h1{
+    margin-top:22%;
+    color:rgb(63, 63, 63);
+    font-weight: 900;
+}
+hr{
+    content: " ";
+    width: 100px;
+    height: 5px;
+    background: #FEB58A;
+    display: block;
+    margin-top: 5px;
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* -------  */
+
+.dotted{
+    border-top: 1px dotted rgb(158, 158, 158);
+    width: 100%;
+}
+.form-group label{
+    color: rgb(32, 32, 32);
+    font-weight: 600;
+}
+
+@media (max-width: 767px){
+.topbar {
+    position: inherit;
+    width: 100%;
+}
+.login-logo img, .side-img img{
+    display: none;
+}
+}
+
+.float-right a{
+    float: right;
+}
+
+/*----  side item  ----*/
+
+@media only screen and (max-width:768px){
+    .login-form-2{
+      display: none;
+    }
+  }
+
+  .login-form-1 h3{
+    text-align: center;
+  }
+  .login-form-1 img{
+      width: 100px;
+    
+  }
+
+
+  
+@media (max-width: 1024px) {
+    .login-container{
+        margin-top: 2%;
+        margin-bottom: 1%;
+      
+    }
+  
+
+}
+
+
+.useful-link ul{
+       list-style: none;
+       margin-top: 20px;
+}
+
+.useful-link ul li{
+   float: none !important;
+   width: 100%;
+  
+   margin-top: 10px;
+   line-height: 3;
+}
+
+.useful-link ul li a{
+    color: #fff;
+    text-align: left!important;
+    font-weight: 600!important;
+  
+    width: 100%;
+    font-size: 17px;
+}
+
+
+.useful-link ul li a:hover{
+    color: yellow;
+    text-decoration: none;
+}
+
+.modal-content{
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+    height: 500px;
+}

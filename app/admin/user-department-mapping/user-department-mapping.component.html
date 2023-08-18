@@ -1,0 +1,77 @@
+<div class="row page-titles">
+  <div class="col-md-12 align-self-center">
+    <h4 class="mb-1 text-muted"> <i><img src="assets/img/networking.png" /></i> Master Mapping Department </h4>
+
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
+    <div class="card border-0 rounded-0 h-100">
+
+      <div class="card-body">
+        <form>
+
+          <div class="row">
+            <div class="col-md-5">
+
+                <div class="form-group">
+                    <label>Select User</label>
+                    <select class="form-control" (change)="selectUser($event)" size="28">
+                      <option *ngFor="let user of departmentUserDetail" [hidden]="user.first_name === 'Admin'" value="{{user.registration_id}}"
+                        [selected]="user.registration_id  == departmentMappingData.registration_id">
+                        {{user.first_name}} {{user.last_name}}
+                      </option>
+                    </select>
+                  </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Current Master Department</label>
+                    <input type="text" class="form-control" [(ngModel)]="CurrentDepartment" [ngModelOptions]="{standalone: true}" readonly>
+                  </div>
+              </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label>Select Master Department</label>
+                    <select name="Department" class="form-control" (change)="selectDepartment($event)" size="28">
+                      <option *ngFor="let dept of departmentdetail" value={{dept.id}}
+                        [selected]="dept.id == departmentMappingData.dept_id">{{dept.departmentname}}</option>
+                    </select>
+        
+                  </div>
+              </div>
+          </div>
+
+
+         
+          <div class="row">
+          <div class="col-md-12">
+              <div class="form-group pull-right">
+                  <button class="btn btn-success btn-md btnSubmit" (click)="submit_map()">Master Department Mapping</button>
+
+                </div>
+
+          </div>
+          </div>
+         
+
+
+         
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="loaderwrapper" *ngIf="showLoader">
+  <div class="loader">
+ 
+  </div>
+  <br/>
+  <p id="loadertext">
+    <label>Loading please wait...</label>
+</p>
+</div>

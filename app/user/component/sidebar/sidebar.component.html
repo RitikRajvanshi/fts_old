@@ -1,0 +1,188 @@
+<aside class="sidebar shadow-sm">
+
+  <!-- <div class="sidebar-profile d-flex flex-column justify-content-center pt-2 pb-1">
+    <div class="picture-wrapper mb-1">
+      <div class="user-picture m-auto">
+        <img [src]="getLinkPicture()" class="img-fluid" alt="">
+      </div>
+    </div>
+    <div class="profile-details text-center pb-2">
+      <p class="mb-0 text-uppercase name">{{username}}</p>
+    
+      <small class="text-uppercase role">{{departmentDetail[0].departmentname}}</small>
+      
+    </div>
+  </div> -->
+  <!-- <div class="sidebar-search pt-1 pb-1 pl-3 pr-3">
+    <input type="search" class="form-control rounded-pill" name="search" placeholder="Search ...">
+  </div> -->
+  <nav class="sidebar-menu pt-3 pb-3">
+
+    <ul class="menu-items">
+      <li >
+          <a href="#" routerLink="dashboard" routerLinkActive="active">
+            <i><img src="assets/img/computer.png"/></i>
+            <span>Dashboard</span>
+          
+          </a>
+        </li>
+      <li>
+        <a href="#" routerLink="edit-profile" routerLinkActive="active">
+          <i><img src="assets/img/man.png"/></i>
+          <span>Edit Profile</span>
+
+        </a>
+      </li>
+      
+
+      <li>
+        <a href="#" routerLink="file-initiation" routerLinkActive="active">
+          <i><img src="assets/img/notebook.png"/></i>
+          <span>File Creation</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" routerLink="file-receive" routerLinkActive="active">
+          <i><img src="assets/img/filerecive.png"/></i>
+          <span>Files to be Received</span> <span class="badge badge-warning rounded-0 text-dark p-1">{{totalFileTobeReceivedCount}}</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" routerLink="file-on-my-desk" routerLinkActive="active">
+          <i><img src="assets/img/ux.png"/></i>
+          <span>Files On My Desk</span> <span class="badge badge-warning rounded-0 text-dark p-1">{{totalFileCount}}</span>
+           <!-- <span class="badge badge-warning text-dark">{{totalFileCount}}</span> -->
+        </a>
+      </li>
+
+      <li>
+        <a href="#" routerLink="tracking-file" routerLinkActive="active">
+          <i><img src="assets/img/analytics.png"/></i>
+          <span>File Tracker</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" routerLink="file-deleted" routerLinkActive="active">
+          <i><img src="assets/img/delete-icon1.png"/></i>
+          <span>File Delete</span>
+        </a>
+      </li>
+
+      <!-- <li>
+        <a href="#" routerLink="add-attachment" routerLinkActive="active">
+          <i><img src="assets/img/moment.png"/></i>
+          <span>Add Attachments</span>
+        </a>
+      </li>
+       -->
+
+      
+      <!-- <li>
+        <a href="#" routerLink="recall-file" routerLinkActive="active">
+          <i><img src="assets/img/moment.png"/></i>
+          <span>File Recall</span>
+        </a>
+      </li> -->
+      
+
+     
+
+
+     
+   
+      <li>
+        <a href="#" routerLink="display-notes" routerLinkActive="active">
+          <i><img src="assets/img/clipboard.png"/></i>
+          <span>My Suggestions/Feedback</span>
+        </a>
+      </li>
+
+
+      <!-- <li *ngIf=" userrole == '4' || userrole == '5' || userrole == '6' || userrole == '7' ">  
+        <a href="#" routerLink="file-close" routerLinkActive="active">
+          <i><img src="assets/img/cancel.png"/></i>
+          <span>Close File</span>
+        </a>
+      </li> -->
+
+
+      <li *ngIf="userrole == '5'">  <!--HOD-->
+        <a href="#" routerLink="reopen-closed" routerLinkActive="active">
+          <i><img src="assets/img/reopen.png"/></i>
+          <span>Reopen-Closed File</span>
+        </a>
+      </li>
+
+      
+
+
+
+    <li *ngIf="userrole == '5'">        <!--HOD-->
+        <a href="#" routerLink="broad-cast-message" routerLinkActive="active">
+          <i><img src="assets/img/sms.png"/></i>
+          <span>Broadcast Messaging</span>
+        </a>
+      </li>
+
+       <!--  <li>
+        <a href="#" routerLink="guest-message" routerLinkActive="active">
+          <i><img src="assets/img/sms.png"/></i>
+          <span>Guest Messaging</span>
+        </a>
+      </li> -->
+
+
+
+
+      
+      <li>
+        <a href="#" routerLink="/user/welcome/change-password" routerLinkActive="active">
+          <i><img src="assets/img/changepassword.png"/></i>
+          <span>Change Password</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" routerLink="/user/welcome/leave-info" routerLinkActive="active">
+          <i><img src="assets/img/info.png"/></i>
+          <span>My Leave Information</span>
+        </a>
+      </li>
+
+      <li *ngIf="userrole == '4' || userrole == '5' || userrole == '6' || userrole == '7'"> 
+        <a href="#ReportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" aria-controls="ReportSubmenu">
+            <i><img src="assets/img/filerecive.png"/></i>
+            <span> Reports </span></a>
+        <ul class="collapse" id="ReportSubmenu" style="background-color: rgba(244, 234, 96, 0.507)!important">
+            <li> <a href="#" routerLink="/user/welcome/generate-report" routerLinkActive="active"> <i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Generate Report</span> </a></li>
+            <li> <a href="#" routerLink="/user/welcome/holding-files-datewise-report" routerLinkActive="active"> <i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Holding Files Datewise Report</span> </a></li>
+        </ul>
+    </li>
+
+
+      <li>
+        <a href="#MetaDataSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" aria-controls="MetaDataSubmenu">
+            <i><img src="assets/img/metadata.png"/></i>
+            <span> Useful Information</span></a>
+        <ul class="collapse" id="MetaDataSubmenu" style="background-color: rgba(244, 234, 96, 0.507)!important">
+            <li> <a href="#" routerLink="department-info" routerLinkActive="active"> <i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Department Information </span> </a></li>
+            <li> <a href="#" routerLink="staff-info" routerLinkActive="active"><i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Staff Information</span> </a></li>
+            <li> <a href="#" routerLink="organization-holiday" routerLinkActive="active"><i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Organization Holiday</span> </a></li>  
+            <li> <a href="#" routerLink="file-holding-information" routerLinkActive="active"><i class="fa fa-arrow-right" aria-hidden="true"></i> <span>File Holding Days</span> </a></li>  
+            <li> <a href="#" routerLink="help" routerLinkActive="active"><i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Tips</span> </a></li>                      
+            <li> <a href="#" routerLink="training-video" routerLinkActive="active"><i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Training Videos</span> </a></li>                                                                    
+            
+        </ul>
+    </li>
+
+
+
+
+
+    </ul>
+
+  </nav>
+</aside>

@@ -1,0 +1,49 @@
+<div class="row page-titles">
+  <div class="col-md-5 col-8 align-self-center">
+    <h4 class="mb-1 text-muted"><i><img src="assets/img/moment.png" /></i> Add Attachments</h4>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12 mb-4 ">
+    <div class="card border-0 rounded-0 h-100">
+
+      <div class="card-body">
+
+        <div style="padding-top:13px ">
+          <div class="row">
+            <div class="col-md-12 offset-md-0">
+              <div class="form-group">
+                <label><h6>File Id</h6></label>
+                <select name="filename" class="form-control" (change)="selectchangeforfile($event)" size="11">
+                  <option *ngFor="let filename of FileNameDetails" value={{filename.file_id}}
+                    [selected]="filename.file_id == fileID">{{filename.file_id}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-8 offset-2 for-font">
+              <h6>File Id : <span style="color: green">{{fileID}}</span></h6>
+              <h6>File Name : <span style="color: green">{{fileName}}</span></h6>
+              <h6>File Subject : <span style="color: green">{{fileSubject}}</span></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="loaderwrapper" *ngIf="showLoader">
+  <div class="loader">
+  </div>
+  <br />
+  <p id="loadertext">
+    <label>Loading please wait...</label>
+  </p>
+</div>

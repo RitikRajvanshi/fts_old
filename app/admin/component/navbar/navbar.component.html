@@ -1,0 +1,100 @@
+<div class="row fixed-top navbar-dark flex-fill">
+
+    <div class="col-md-3" id="nameoffile">
+        <nav class="navbar navbar-expand-md ">
+            <div class="navbar-header pl-2 pr-2 ml-3 text-center">
+                <a class="navbar-brand m-0 w-100">
+             
+                  
+                  <!-- <img src="./assets/img/logo.png" alt="lightning logo" width="50px"> -->
+                  <span class="ml-1"><b>File Tracking System</b></span>
+                </a>
+              </div>
+              <!-- <div class="sidebar-toggler ml-auto mr-3">
+                  <a class="btn nav-link" (click)="toggleSidebar()"><i class="fa fa-bars"></i></a>
+                </div> -->
+              <!-- left box -->
+              <ul class="navbar-nav flex-fill mt-1 align-items-center left-nav">
+                  <li class="nav-item navicon">
+                    <a class="btn nav-link" (click)="toggleSidebarPin()"><i class="fa fa-bars"></i></a>
+                  </li>
+                
+                </ul>
+          </nav>
+    </div>
+    <div class="col-md-4" id="nameoflogo">
+    
+  
+      <ul class="logo-style">
+        <li><img src="./assets/img/logo.png" alt="lightning logo" width="50px"></li>
+        <li><h5 class="text-center text-white pt-1">बीरबल साहनी पुराविज्ञान संस्थान  <br/> Birbal Sahni Institute of Palaeosciences</h5></li>
+        <!-- <li><h5 class="text-center text-white pt-1">File Tracking System <br/> &nbsp;</h5></li> -->
+      </ul>
+     
+      
+    </div>
+      <div class="col-md-5" id="nameofuser">
+  
+          <nav class="navbar navbar-expand-md float-right">
+              <div class="nav-toggler-right mr-4 d-md-none">
+                  <button class="" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+                    aria-controls="collapseBasic">
+                   
+                    <img src="./assets/img/user.jpg" class="img-fluid" alt="">
+                  </button>
+                  <span class="user-profile nav-alert bg-danger"></span>
+                </div>
+              <div id="collapseBasic" >
+                  <ul class="navbar-nav ">
+                    <li class="side-img">
+                      <img src="{{img_url}}" alt="{{img_url}}" />
+                    </li>
+                    <li> <label id="username">{{username}} |</label> </li>
+                    <li><label id="username">{{designation}} |</label></li>
+                    <li> <label id="username">{{department}} |</label></li>
+                    <li class="nav-item">
+                      <a class="btn nav-link" style="cursor: pointer; padding-right:30px; font-size:16px;"  (click)="wantlogout()">
+                        Logout </a>
+                    </li>
+                  </ul>
+              </div>
+            
+            </nav>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- <nav class="navbar navbar-expand-md float-right" id="bs-example-navbar-collapse-1">      
+      
+        <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown ">
+            <a href="#" class="dropdown-toggle side-img" data-toggle="dropdown" role="button" aria-expanded="false">
+              <img src="{{img_url}}" alt="{{img_url}}" /><span> {{username}}</span>
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu dropdown-menu-left" role="menu">
+               
+                  <li class="side-img">
+                    <img src="{{img_url}}" alt="{{img_url}}" />
+                  </li>
+                  <li> <label id="username">{{username}} </label> </li>
+                  <li><label id="username">{{designation}} </label></li>
+                  <li> <label id="username">{{department}} </label></li>
+                  <hr>
+                  <li class="nav-item">
+                    <a class="btn nav-link" style="cursor: pointer; font-size:16px;"  (click)="wantlogout()">
+                      Logout </a>
+                  </li>
+               
+              </ul>
+            </li>
+          </ul>
+        </nav> -->
+        <!-- /.navbar-collapse -->
+        </div>
+  
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  

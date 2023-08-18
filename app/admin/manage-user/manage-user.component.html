@@ -1,0 +1,132 @@
+<div class="row page-titles">
+  <div class="col-md-6 col-sm-12 align-self-center">
+    <h4 class="mb-1 text-muted"> <i><img src="assets/img/users.png" /></i> Manage Users</h4>
+
+  </div>
+  <div class="col-md-6 col-sm-12 align-self-center">
+
+    <div class="float-right">
+
+      <a routerLink="../add-user" class="btn btn-success btn-lg"> Add New User</a>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+
+<div class="row">
+  <div class="col-md-12 mb-4 align-items-stretch">
+    <div class="card border-0 rounded-0 h-100">
+      <div class="card-body">
+        <div class="table-responsive" id="Department_Master">
+          <table id="staffinfo" class="table table-bordered table-striped">
+            <thead class="table-success">
+              <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Employee Id</th>
+                <th scope="col">Employee Name</th>
+                <th scope="col">Designation </th>
+                <th scope="col">Email </th>
+                <!-- <th scope="col">Status </th> -->
+                <th scope="col">Enable / Disable </th>
+                <th scope="col">Edit User </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let emp of emp_detail ; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{emp.employee_id}}</td>
+                <td>{{emp.first_name}} {{emp.last_name}}</td>
+                <td>{{emp.designationname}}</td>
+                <td>{{emp.email_id}}</td>
+                <!-- <td>{{emp.isactive}}</td> -->
+                <td>
+                  <button type="button" class="btn-success1" data-toggle="modal" data-target="#DisableCustomer"
+                    (click)="user_registration_id(emp.registration_id)" *ngIf="emp.isactive === true"> Disable
+                    User</button>
+                  <button type="button" class="btn-danger1" data-toggle="modal" data-target="#EnabledCustomer"
+                    (click)="user_registration_id(emp.registration_id)" *ngIf="emp.isactive === false"> Enable
+                    User</button>
+                </td>
+                <td><button class="btn-info" (click)="EditUser(emp.registration_id)">Edit User</button></td>
+
+              </tr>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- The Modal For Disable Customer -->
+<div class="modal" id="DisableCustomer">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Disable User</h4>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-center">
+        <p>Are you sure you want to disable user.</p>
+        <button class="btn btn-danger" (click)="DisableCustomer()">Disable User</button>
+        <br /> <br />
+        <!-- <span class="colorgreen" style="text-align: center!important">{{lblsuccess}}</span> -->
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- The Modal For Enabled Customer -->
+<div class="modal" id="EnabledCustomer">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Enable User</h4>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-center">
+        <p>Are you sure you want to enable user.</p>
+        <button class="btn btn-success" (click)="EnableCustomer()">Enable User</button>
+        <br /> <br />
+        <!-- <span class="colorgreen" style="text-align: center!important">{{lblsuccess}}</span> -->
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="loaderwrapper" *ngIf="showLoader">
+  <div class="loader">
+ 
+  </div>
+  <br/>
+  <p id="loadertext">
+    <label>Loading please wait...</label>
+</p>
+</div>

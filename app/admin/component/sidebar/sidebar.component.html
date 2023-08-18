@@ -1,0 +1,175 @@
+<aside class="sidebar shadow-sm">
+
+    <!-- <div class="sidebar-profile d-flex flex-column justify-content-center pt-2 pb-1">
+      <div class="picture-wrapper mb-1">
+        <div class="user-picture m-auto">
+          <img src="./assets/img/user.jpg" class="img-fluid" alt="">
+        </div>
+      </div>
+      <div class="profile-details text-center pb-2">
+        <p class="mb-0 text-uppercase name">Admin</p>
+        <small class="text-uppercase role">Administrator</small>
+      </div>
+    </div> -->
+    <!-- <div class="sidebar-search pt-1 pb-1 pl-3 pr-3">
+      <input type="search" class="form-control rounded-pill" name="search" placeholder="Search ...">
+    </div> -->
+    <nav class="sidebar-menu pt-3 pb-3">
+    
+     <ul class="menu-items">
+        <!-- <li >
+          <a href="#" routerLink="/admin/welcome/dashboard" routerLinkActive="active">
+            <i><img src="assets/img/computer.png"/></i>
+            <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+          <a href="#" routerLink="/admin/welcome/edit-profile" routerLinkActive="active">
+            <i><img src="assets/img/man.png"/></i>
+            <span>Edit Profile</span>
+  
+          </a>
+        </li> -->
+
+         <li>
+          <a href="#" routerLink="/admin/welcome/add-department" routerLinkActive="active">
+            <i><img src="assets/img/ux.png"/></i>
+            
+            <span>Manage Department</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" routerLink="/admin/welcome/manage-HOD" routerLinkActive="active">
+            <i><img src="assets/img/man.png"/></i>
+            
+            <span>Manage Department HOD</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" routerLink="/admin/welcome/manage-designation" routerLinkActive="active">
+            <i><img src="assets/img/clipboard.png"/></i>
+            
+            <span>Manage Designation</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" routerLink="/admin/welcome/file-categories" routerLinkActive="active">
+            <i><img src="assets/img/computer.png"/></i>
+            
+            <span>Manage Categories</span>
+          </a>
+        </li>
+    
+        <li>
+          <a href="#" routerLink="/admin/welcome/manage-user" routerLinkActive="active">
+            <i><img src="assets/img/users.png"/></i>
+              <span>Manage Users</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" routerLink="/admin/welcome/user-department-mapping" routerLinkActive="active">
+            <i><img src="assets/img/networking.png"/></i>
+            <span>Master Mapping Department </span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" routerLink="/admin/welcome/manage-file-holdays" routerLinkActive="active">
+            <i><img src="assets/img/notebook.png"/></i>
+              <span>Manage File Holding Days</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" routerLink="/admin/welcome/manage-organization-holiday" routerLinkActive="active">
+            <i><img src="assets/img/filerecive.png"/></i>
+              <span>Manage Organization Holidays</span>
+          </a>
+        </li>
+
+
+        <li>
+          <a href="#" routerLink="/admin/welcome/suggestions-info" routerLinkActive="active">
+            <i><img src="assets/img/metadata.png"/></i>
+            <span>Organization Suggestions </span>
+          </a>
+        </li>
+
+
+        <li>
+          <a href="#" routerLink="/admin/welcome/update-suggestions" routerLinkActive="active">
+            <i><img src="assets/img/metadata.png"/></i>
+            <span>Update Suggestions </span>
+          </a>
+        </li>
+     
+        <li>       
+          <a href="#" routerLink="/admin/welcome/broad-cast-message" routerLinkActive="active">
+            <i><img src="assets/img/sms.png"/></i>
+            <span>Broadcast Messaging</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" routerLink="/admin/welcome/change-password" routerLinkActive="active">
+            <i><img src="assets/img/changepassword.png"/></i>
+            <span>Change Password</span>
+          </a>
+        </li> 
+
+        
+        <!-- <li>
+          <a href="#" routerLink="/admin/welcome/leave-info" routerLinkActive="active">
+            <i><img src="assets/img/info.png"/></i>
+            <span>My Leave Information</span>
+          </a>
+        </li> -->
+
+        <li> 
+          <a href="#ReportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" aria-controls="ReportSubmenu">
+              <i><img src="assets/img/filerecive.png"/></i>
+              <span> Reports </span></a>
+          <ul class="collapse" id="ReportSubmenu" style="background-color: rgba(244, 234, 96, 0.507)!important">
+              <li> <a href="#" routerLink="/admin/welcome/all-file-tracker" routerLinkActive="active"><i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Master File Tracker</span> </a></li> 
+              <!-- <li> <a href="#" routerLink="/admin/welcome/credentials" routerLinkActive="active"> <i class="fa fa-arrow-right" aria-hidden="true"></i> <span>User Credentials </span> </a></li> -->
+              <li> <a href="#" routerLink="/admin/welcome/total-no-of-files" routerLinkActive="active"> <i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Date Wise Files Creation</span> </a></li>
+              <li> <a href="#" routerLink="/admin/welcome/generate-report" routerLinkActive="active"> <i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Generate Report</span> </a></li>
+              <li> <a href="#" routerLink="/admin/welcome/holding-files-datewise-report" routerLinkActive="active"> <i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Holding Files Datewise Report</span> </a></li>
+          </ul>
+      </li>
+
+
+
+
+
+
+       <li> 
+            <a href="#MetaDataSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" aria-controls="MetaDataSubmenu">
+                <i><img src="assets/img/analytics.png"/></i>
+                <span> Useful Information</span></a>
+            <ul class="collapse" id="MetaDataSubmenu" style="background-color: rgba(244, 234, 96, 0.507)!important">
+                <li> <a href="#" routerLink="/admin/welcome/department-info" routerLinkActive="active"> <i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Department Information </span> </a></li>
+                <li> <a href="#" routerLink="/admin/welcome/staff-info" routerLinkActive="active"><i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Staff Information</span> </a></li> 
+                <li> <a href="#" routerLink="/admin/welcome/organization-holiday" routerLinkActive="active"><i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Organization Holiday</span> </a></li>  
+                <li> <a href="#" routerLink="/admin/welcome/file-holding-information" routerLinkActive="active"><i class="fa fa-arrow-right" aria-hidden="true"></i> <span>File Holding Days</span> </a></li>   
+                <li> <a href="#" routerLink="help" routerLinkActive="active"><i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Tips</span> </a></li>                      
+                <li> <a href="#" routerLink="training-video" routerLinkActive="active"><i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Training Videos</span> </a></li>                                                 
+            </ul>
+        </li>
+
+        <li>
+          <a href="#" routerLink="/admin/welcome/fts-dbdesign" routerLinkActive="active" hidden="hidden">
+            <i><img src="assets/img/metadata.png"/></i>
+            <span>FTS Database Design </span>
+          </a>
+        </li>
+       
+
+
+      </ul>
+     
+    </nav>
+  </aside>
