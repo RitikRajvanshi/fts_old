@@ -1,0 +1,176 @@
+/* You can add global styles to this file, and also import other style files */
+// $fa-font-path:"~font-awesome/fonts";
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+
+$hamburger-padding-x           : 0px !default;
+$hamburger-padding-y           : 0px !default;
+$hamburger-layer-width         : 25px !default;
+$hamburger-layer-height        : 2px !default;
+$hamburger-layer-spacing       : 5px !default;
+$hamburger-layer-color         : #9b9ea2 !default;
+$hamburger-layer-border-radius : 4px !default;
+$hamburger-hover-opacity       : 0.7 !default;
+
+@import '~bootstrap/scss/bootstrap';
+// @import '~font-awesome/scss/font-awesome';
+// @import '~hamburgers/_sass/hamburgers/hamburgers';
+@import '~ngx-toastr/toastr-bs4-alert';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+// @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+// @import '~@fortawesome/fontawesome-free/scss/solid';
+// @import '~@fortawesome/fontawesome-free/scss/regular';
+// @import '~@fortawesome/fontawesome-free/scss/brands';
+
+@import './assets/apv-admin';
+
+.colorred{
+    color: red;
+    font-size: 12px;
+}
+.colorgreen{
+    color: green;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding-top: 60px;
+    background-image: url("assets/img/bgnew.jpg");
+    background-size: cover;
+  }
+
+.page-titles {
+    background: #ffffff;
+    margin: -25px -23px 30px;
+    padding: 15px;
+    -webkit-box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1); }
+
+
+.btn-success,
+.btn-success.disabled {
+  background: #26c6da;
+  border: 1px solid #26c6da;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(40, 190, 189, 0.14), 0 3px 1px -2px rgba(40, 190, 189, 0.2), 0 1px 5px 0 rgba(40, 190, 189, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(40, 190, 189, 0.14), 0 3px 1px -2px rgba(40, 190, 189, 0.2), 0 1px 5px 0 rgba(40, 190, 189, 0.12);
+  -webkit-transition: 0.2s ease-in;
+  -o-transition: 0.2s ease-in;
+  transition: 0.2s ease-in; }
+  .btn-success:hover,
+  .btn-success.disabled:hover {
+    background: #26c6da;
+    -webkit-box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
+    box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
+    border: 1px solid #26c6da; }
+  .btn-success.active, .btn-success:focus,
+  .btn-success.disabled.active,
+  .btn-success.disabled:focus {
+    background: #1eacbe;
+    -webkit-box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
+    box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2); }
+
+ @media (min-width:767px) and (max-width:1024px){
+    .wrapper main .sidebar .sidebar-menu ul li a span{
+        margin-left: 0.2rem;
+    }
+}
+
+
+
+#spinner {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.794) url("./assets/img/progress.gif") center center no-repeat;
+  /* opacity: .3; */
+  
+  z-index: 1000;
+  /* background-image: url("../../../assets/images/progress.gif"); */
+
+
+}
+
+#spinnertext{
+  position: fixed;
+  top:40%;
+font-size: 22px;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+
+  
+
+}
+
+.table td {
+  padding: 0.4rem 0.4rem 0.2rem 0.4rem !important;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.btn-success1 {
+  color: rgb(75, 75, 75);
+  background-color: #c3e6cb;
+  border-color: #6cc781;
+
+}
+
+.btn-danger1{
+  color: #171717;
+  background-color: #ffa2ab;
+  border-color: #ff7986;
+}
+
+
+.form-group {
+  margin-bottom: 1.7rem !important;
+}
+
+.loaderwrapper{
+  position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.594);
+    z-index: 1000;
+}
+
+
+
+.loader{
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+  top: 50%;
+ left:61%;
+  position: fixed;
+  margin-top: -9em;
+  margin-left:-15em;
+ 
+}
+
+@keyframes spin{
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+
+#loadertext{
+  position: fixed;
+  top:45%;
+  font-size: 22px;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  text-align: center;
+}
